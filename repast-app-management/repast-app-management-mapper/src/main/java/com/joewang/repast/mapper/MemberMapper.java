@@ -1,6 +1,7 @@
 package com.joewang.repast.mapper;
 
 import com.joewang.repast.model.Member;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -14,5 +15,5 @@ public interface MemberMapper extends Mapper<Member> {
      * @Param
      * @return
      **/
-    Integer updateUser(String openID,String username);
+    Integer updateUser(@Param("openID") String openID,@Param("username") String username);
 }
