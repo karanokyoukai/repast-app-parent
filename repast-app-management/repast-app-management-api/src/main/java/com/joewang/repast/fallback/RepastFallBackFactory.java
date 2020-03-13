@@ -1,10 +1,13 @@
 package com.joewang.repast.fallback;
 
+import com.joewang.repast.model.CouponHistory;
 import com.joewang.repast.model.LoginLog;
 import com.joewang.repast.model.Member;
 import com.joewang.repast.service.IRepastService;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * @description:
@@ -23,6 +26,11 @@ public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
 
             public Boolean addLoginLog(LoginLog loginLog) {
                 System.out.println("熔断日志写入方法");
+                return null;
+            }
+
+            public List<CouponHistory> selectMyCoupon(Long memberid) {
+                System.out.println("熔断查询用户优惠券方法");
                 return null;
             }
         };
