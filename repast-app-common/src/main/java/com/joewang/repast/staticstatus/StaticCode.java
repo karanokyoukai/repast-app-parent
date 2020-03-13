@@ -10,7 +10,7 @@ package com.joewang.repast.staticstatus;
 public class StaticCode {
 
     /**
-     * 常量字符集
+     * 常量编码字符集
      */
     public static final String ENCODING = "UTF-8";
     /**
