@@ -10,6 +10,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * @description:
+ *      provider8081启动类
  * @author: Joe Wang
  * @date: 2020-03-11
  */
