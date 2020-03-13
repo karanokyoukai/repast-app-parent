@@ -73,6 +73,10 @@ public class MemberService extends BaseService<Member> {
      * @return java.lang.Integer
      **/
     public Integer updateUsername(Member member){
-        return memberMapper.updateUser(member.getOpenId(),member.getUsername());
+        System.out.println(member.getUsername());
+        System.out.println("-----------------------");
+        Integer integer = memberMapper.updateUser(member.getOpenId(), member.getUsername());
+        System.out.println(integer);
+        return integer;
     }
 }

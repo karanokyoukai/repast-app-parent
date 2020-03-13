@@ -56,5 +56,5 @@ public interface IRepastService {
      * @return java.lang.Integer
      **/
     @PostMapping("/updatename")
-    public Integer updateUsername(@RequestBody Member member);
+    Integer updateUsername(@RequestBody Member member);
 }

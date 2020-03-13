@@ -37,7 +37,7 @@ public class MemberController extends BaseController {
     }
 
     @PostMapping("/updatename")
-    public ResultData updateUsername(@RequestBody Member member){
+    public ResultData updateUsername(Member member){
         Integer integer = repastService.updateUsername(member);
         if(integer!=null){
             return super.loginFailed();
