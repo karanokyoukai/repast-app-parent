@@ -3,6 +3,7 @@ package com.joewang.repast.service;
 import com.joewang.repast.base.BaseService;
 import com.joewang.repast.mapper.MemberMapper;
 import com.joewang.repast.model.Member;
+import com.joewang.repast.redis.RedisService;
 import com.joewang.repast.utils.IDUtil;
 import com.joewang.repast.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import tk.mybatis.mapper.common.Mapper;
 public class MemberService extends BaseService<Member> {
     @Autowired
     private MemberMapper memberMapper;
+
 
     public Mapper<Member> getMapper() {
         return memberMapper;

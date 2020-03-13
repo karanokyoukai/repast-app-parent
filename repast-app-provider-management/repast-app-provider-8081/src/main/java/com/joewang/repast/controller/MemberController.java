@@ -40,4 +40,5 @@ public class MemberController {
     public Boolean addLoginLog(@RequestBody LoginLog loginLog){
         return loginLogService.addLoginLog(loginLog);
     }
+
 }

@@ -35,4 +35,5 @@ public interface IRepastService {
      */
     @PostMapping("/addLoginLog")
     Boolean addLoginLog(@RequestBody LoginLog loginLog);
+
 }

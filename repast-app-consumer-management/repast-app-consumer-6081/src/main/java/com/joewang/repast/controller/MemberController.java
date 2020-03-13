@@ -23,7 +23,7 @@ public class MemberController extends BaseController {
     @Autowired
     private IRepastService repastService;
 
-    @PostMapping("doLogin")
+    @PostMapping("/doLogin")
     @ApiOperation(value = "登录", notes = "用户执行登陆操作")
     @LoginLogAnnotation(operationType = "登陆操作", operationName = "普通用户登录")
     public ResultData doLogin(Member member){
@@ -34,4 +34,5 @@ public class MemberController extends BaseController {
         }
         return super.loginFailed();
     }
+
 }

@@ -2,6 +2,8 @@ package com.joewang.repast;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import tk.mybatis.spring.annotation.MapperScan;
@@ -11,7 +13,10 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @author: Joe Wang
  * @date: 2020-03-11
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = {
+        RedisAutoConfiguration.class,
+        RedisRepositoriesAutoConfiguration.class
+})
 @EnableEurekaClient
 @EnableCircuitBreaker
 @MapperScan("com.joewang.repast.mapper")
