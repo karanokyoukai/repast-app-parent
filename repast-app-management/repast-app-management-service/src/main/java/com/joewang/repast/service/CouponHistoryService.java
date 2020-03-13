@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class CouponHistoryService extends BaseService<CouponHistory> {
         return couponHistoryMapper;
     }
 
-    public List<CouponHistory> selectMyCoupon(Long memberid){
+    public List<HashMap> selectMyCoupon(Long memberid){
         return couponHistoryMapper.selectMemberCoupon(memberid);
     }
 }

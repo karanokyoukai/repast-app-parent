@@ -29,10 +29,10 @@ public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
                 return null;
             }
 
-            public List<CouponHistory> selectMyCoupon(Long memberid) {
-                System.out.println("熔断查询用户优惠券方法");
+            public Integer updateUsername(Member member) {
                 return null;
             }
+
         };
         return repastService;
     }

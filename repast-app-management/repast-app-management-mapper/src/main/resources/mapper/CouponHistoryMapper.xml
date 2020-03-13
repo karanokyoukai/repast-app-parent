@@ -19,7 +19,10 @@
     <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
   </resultMap>
 
-  <select id="selectMemberCoupon" resultType="com.joewang.repast.model.CouponHistory" parameterType="long">
-    select * from sms_coupon_history where member_id = #{memberid}
+  <select id="selectMemberCoupon" resultType="hashmap" parameterType="long">
+    SELECT A.*,C.* FROM sms_coupon_history A
+    JOIN ums_member B ON A.member_id = B.id
+    JOIN sms_coupon C ON A.coupon_id = C.id
+    WHERE B.id = #{memberid}
   </select>
 </mapper>

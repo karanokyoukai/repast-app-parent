@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public class MemberCouponController extends BaseController {
     @PostMapping("/selectMyCoupon")
     @ApiOperation(value = "查询个人优惠券", notes = "用户执行查询个人优惠券操作")
     public ResultData selectMyCoupon(Long memberid){
-        List<CouponHistory> couponHistories = memberCoupon.selectMyCoupon(memberid);
+        List<HashMap> couponHistories = memberCoupon.selectMyCoupon(memberid);
         return operationSuccess(couponHistories);
     }
 }

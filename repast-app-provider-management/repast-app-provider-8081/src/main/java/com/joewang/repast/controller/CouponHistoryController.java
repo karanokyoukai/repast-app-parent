@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class CouponHistoryController {
     private CouponHistoryService service;
 
     @PostMapping("/selectMyCoupon")
-    public List<CouponHistory> selectMyCoupon(@RequestBody Long memberid){
+    public List<HashMap> selectMyCoupon(@RequestBody Long memberid){
         return service.selectMyCoupon(memberid);
     }
 }

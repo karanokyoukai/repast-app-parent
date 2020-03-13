@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -16,5 +17,5 @@ import java.util.List;
 @FeignClient(value = "memberinfo-interface", contextId = "MemberCouponClient")
 public interface IMemberCoupon {
     @PostMapping("/selectMyCoupon")
-    List<CouponHistory> selectMyCoupon(@RequestBody Long memberid);
+    List<HashMap> selectMyCoupon(@RequestBody Long memberid);
 }
