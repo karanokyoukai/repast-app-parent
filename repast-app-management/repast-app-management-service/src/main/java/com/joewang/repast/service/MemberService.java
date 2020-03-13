@@ -65,4 +65,14 @@ public class MemberService extends BaseService<Member> {
         }
         return null;
     }
+    /*
+     * @Author junzheng Han
+     * 修改昵称方法
+     * @Description @Date 18:08 2020/3/13
+     * @Param [member]
+     * @return java.lang.Integer
+     **/
+    public Integer updateUsername(Member member){
+        return memberMapper.updateUser(member.getOpenId(),member.getUsername());
+    }
 }

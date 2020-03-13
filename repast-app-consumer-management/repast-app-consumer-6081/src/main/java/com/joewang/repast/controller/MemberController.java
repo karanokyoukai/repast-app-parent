@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -34,5 +35,15 @@ public class MemberController extends BaseController {
         }
         return super.loginFailed();
     }
+
+    @PostMapping("/updatename")
+    public ResultData updateUsername(@RequestBody Member member){
+        Integer integer = repastService.updateUsername(member);
+        if(integer!=null){
+            return super.loginFailed();
+        }
+        return null;
+    }
+
 
 }

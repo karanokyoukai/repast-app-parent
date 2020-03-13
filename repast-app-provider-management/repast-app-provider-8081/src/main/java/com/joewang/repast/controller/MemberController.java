@@ -40,5 +40,16 @@ public class MemberController {
     public Boolean addLoginLog(@RequestBody LoginLog loginLog){
         return loginLogService.addLoginLog(loginLog);
     }
+    /*
+     * @Author junzheng Han
+     * 修改昵称
+     * @Description @Date 18:11 2020/3/13
+     * @Param [member]
+     * @return java.lang.Integer
+     **/
+    @PostMapping("/updatename")
+    public Integer updateUsername(@RequestBody Member member){
+        return memberService.updateUsername(member);
+    }
 
 }

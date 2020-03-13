@@ -48,5 +48,13 @@ public interface IRepastService {
      */
 //    @PostMapping("/selectMyCoupon")
 //    List<CouponHistory> selectMyCoupon(@RequestBody Long memberid);
-
+    /*
+     * @Author junzheng Han
+     * 修改昵称
+     * @Description @Date 18:15 2020/3/13
+     * @Param [member]
+     * @return java.lang.Integer
+     **/
+    @PostMapping("/updatename")
+    public Integer updateUsername(@RequestBody Member member);
 }
