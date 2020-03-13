@@ -8,6 +8,7 @@ package com.joewang.repast.staticstatus;
  *      在JVM编译的java文件的时候--->class--->JVM会自动给所有的类以及通过类所生成出来的对象都添加上final关键字
  **/
 public class StaticCode {
+    //修改测试
 
     /**
      * 常量编码字符集
