@@ -25,4 +25,9 @@
     JOIN sms_coupon C ON A.coupon_id = C.id
     WHERE B.id = #{memberid}
   </select>
+  
+  <update id="updateMemberCouponState">
+    UPDATE sms_coupon_history A  SET A.use_status = 2
+    WHERE A.use_status = 0 AND A.coupon_id IN (SELECT B.id FROM sms_coupon B WHERE B.end_time &lt; CURTIME())
+  </update>
 </mapper>

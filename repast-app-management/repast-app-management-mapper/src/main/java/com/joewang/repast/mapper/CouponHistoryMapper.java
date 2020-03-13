@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface CouponHistoryMapper extends Mapper<CouponHistory> {
     List<HashMap> selectMemberCoupon(Long memberid);
+    Integer updateMemberCouponState();
 }
