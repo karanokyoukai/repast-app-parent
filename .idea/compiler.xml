@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="repast-app-management-mapper" />
+        <module name="repast-app-common" />
+        <module name="repast-app-eureka-7081" />
+        <module name="repast-app-consumer-6081" />
+        <module name="repast-app-provider-8081" />
+        <module name="repast-app-config" />
+        <module name="repast-app-management-api" />
+        <module name="repast-app-management-model" />
+        <module name="repast-app-management-service" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

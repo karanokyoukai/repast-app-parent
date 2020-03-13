@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/repast-app-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-config/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-consumer-management/repast-app-consumer-6081/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-consumer-management/repast-app-consumer-6081/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-eureka-management/repast-app-eureka-7081/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-eureka-management/repast-app-eureka-7081/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-mapper/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-model/src/main/java/com/joewang/repast/model/Member.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-model/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-management/repast-app-management-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-provider-management/repast-app-provider-8081/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/repast-app-provider-management/repast-app-provider-8081/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
