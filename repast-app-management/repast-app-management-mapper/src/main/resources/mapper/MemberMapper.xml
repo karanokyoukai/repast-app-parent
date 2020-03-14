@@ -33,7 +33,7 @@
     <select id="selectMemberByOpenID" parameterType="string" resultType="com.joewang.repast.model.Member">
       select * from ums_member where open_id = #{openID}
     </select>
-    <select id="updateUser" parameterType="string" resultType="integer">
+    <update id="updateUser" parameterType="string">
       UPDATE ums_member SET username = #{username} WHERE open_id=#{openID}
-    </select>
+    </update>
 </mapper>

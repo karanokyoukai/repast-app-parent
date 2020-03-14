@@ -39,15 +39,6 @@ public interface IRepastService {
     @PostMapping("/addLoginLog")
     Boolean addLoginLog(@RequestBody LoginLog loginLog);
 
-    /**
-     * @desc: 用户优惠券查询
-     * @author: Joe Wang
-     * @date: 2020/3/13
-     * @param: [memberid]
-     * @return: java.util.List<com.joewang.repast.model.CouponHistory>
-     */
-//    @PostMapping("/selectMyCoupon")
-//    List<CouponHistory> selectMyCoupon(@RequestBody Long memberid);
     /*
      * @Author junzheng Han
      * 修改昵称

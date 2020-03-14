@@ -11,11 +11,20 @@ import java.util.List;
 
 /**
  * @description:
+ *      用户优惠券相关api
  * @author: Joe Wang
  * @date: 2020-03-13
  */
 @FeignClient(value = "memberinfo-interface", contextId = "MemberCouponClient")
 public interface IMemberCoupon {
+    /**
+     * @desc:
+     *      根据用户id查询用户所有优惠券
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [memberid]
+     * @return: java.util.List<java.util.HashMap>
+     */
     @PostMapping("/selectMyCoupon")
     List<HashMap> selectMyCoupon(@RequestBody Long memberid);
 }

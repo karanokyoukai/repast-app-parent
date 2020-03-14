@@ -7,6 +7,14 @@ import tk.mybatis.mapper.common.Mapper;
 
 @Repository
 public interface MemberMapper extends Mapper<Member> {
+    /**
+     * @desc:
+     *      根据微信传递的openid来查询用户相关信息进行登陆
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [openID]
+     * @return: com.joewang.repast.model.Member
+     */
     Member selectMemberByOpenID(String openID);
     /*
      * @Author junzheng Han
