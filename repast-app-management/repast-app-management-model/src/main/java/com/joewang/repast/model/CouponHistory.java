@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Accessors(chain = true)
 @EqualsAndHashCode
-public class CouponHistory {
+public class CouponHistory implements Serializable {
     @Id
     @Column(name = "`id`")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

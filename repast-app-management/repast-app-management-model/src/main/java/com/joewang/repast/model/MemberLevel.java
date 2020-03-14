@@ -1,9 +1,6 @@
 package com.joewang.repast.model;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -16,6 +13,7 @@ import javax.persistence.*;
 @Accessors(chain = true)
 @ToString
 @EqualsAndHashCode
+@Data
 public class MemberLevel implements Serializable {
     @Id
     @Column(name = "`id`")
