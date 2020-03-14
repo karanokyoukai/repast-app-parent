@@ -3,6 +3,7 @@ package com.joewang.repast.controller;
 import com.joewang.repast.model.CouponHistory;
 import com.joewang.repast.service.CouponHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import java.util.List;
  * @date: 2020-03-13
  */
 @RestController
+@EnableScheduling
 public class CouponHistoryController {
     @Autowired
     private CouponHistoryService service;
@@ -36,7 +38,7 @@ public class CouponHistoryController {
         return service.selectMyCoupon(memberid);
     }
 
-    @Scheduled(cron = "0/5 * * * * *")
+    @Scheduled(cron = "0 0 0 * * ")
     public void updateMemberCouponState(){
         Integer updateResult = service.updateMemberCouponState();
         System.out.println("成功更新" + updateResult + "条优惠券信息");
