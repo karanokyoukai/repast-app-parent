@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * @description:
+ *      用户优惠券信息相关的consumer层类
  * @author: Joe Wang
  * @date: 2020-03-13
  */

@@ -3,6 +3,7 @@ package com.joewang.repast.controller;
 import com.joewang.repast.model.CouponHistory;
 import com.joewang.repast.service.CouponHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,8 @@ public class CouponHistoryController {
     private CouponHistoryService service;
 
     /**
-     * @desc: 
+     * @desc:
+     *      根据用户id查询用户所有优惠券
      * @author: Joe Wang 
      * @date: 2020/3/14 
      * @param: [memberid]
@@ -32,5 +34,11 @@ public class CouponHistoryController {
     @PostMapping("/selectMyCoupon")
     public List<HashMap> selectMyCoupon(@RequestBody Long memberid){
         return service.selectMyCoupon(memberid);
+    }
+
+    @Scheduled(cron = "0/5 * * * * *")
+    public void updateMemberCouponState(){
+        Integer updateResult = service.updateMemberCouponState();
+        System.out.println("成功更新" + updateResult + "条优惠券信息");
     }
 }

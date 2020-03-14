@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @description:
+ *      用户信息相关的consumer层类
  * @author: Joe Wang
  * @date: 2020-03-11
  */

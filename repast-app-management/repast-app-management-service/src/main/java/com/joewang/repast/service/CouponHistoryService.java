@@ -4,6 +4,7 @@ import com.joewang.repast.base.BaseService;
 import com.joewang.repast.mapper.CouponHistoryMapper;
 import com.joewang.repast.model.CouponHistory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -34,5 +35,16 @@ public class CouponHistoryService extends BaseService<CouponHistory> {
      */
     public List<HashMap> selectMyCoupon(Long memberid){
         return couponHistoryMapper.selectMemberCoupon(memberid);
+    }
+
+    /**
+     * @desc: 更新用户券表中过期的优惠券
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: []
+     * @return: java.lang.Integer
+     */
+    public Integer updateMemberCouponState(){
+        return couponHistoryMapper.updateMemberCouponState();
     }
 }
