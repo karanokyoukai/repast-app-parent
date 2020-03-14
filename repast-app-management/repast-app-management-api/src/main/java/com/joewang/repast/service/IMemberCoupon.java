@@ -1,5 +1,6 @@
 package com.joewang.repast.service;
 
+import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,4 +28,14 @@ public interface IMemberCoupon {
      */
     @PostMapping("/selectMyCoupon")
     List<HashMap> selectMyCoupon(@RequestBody Long memberid);
+
+    /**
+     * @desc: 根据用户id查询用户可领通用优惠券
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [memberid]
+     * @return: java.util.List<com.joewang.repast.model.Coupon>
+     */
+    @PostMapping("/selectConponCouldGetById")
+    List<Coupon> selectConponCouldGetById(@RequestBody Long memberid);
 }

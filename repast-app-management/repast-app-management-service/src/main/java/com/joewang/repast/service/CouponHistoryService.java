@@ -2,6 +2,7 @@ package com.joewang.repast.service;
 
 import com.joewang.repast.base.BaseService;
 import com.joewang.repast.mapper.CouponHistoryMapper;
+import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -46,5 +47,16 @@ public class CouponHistoryService extends BaseService<CouponHistory> {
      */
     public Integer updateMemberCouponState(){
         return couponHistoryMapper.updateMemberCouponState();
+    }
+
+    /**
+     * @desc: 根据用户id查询用户可领通用优惠券
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [memberid]
+     * @return: java.util.List<com.joewang.repast.model.Coupon>
+     */
+    public List<Coupon> selectConponCouldGet(Long memberid){
+        return couponHistoryMapper.selectConponCouldGet(memberid);
     }
 }

@@ -2,6 +2,7 @@ package com.joewang.repast.controller;
 
 import com.joewang.repast.base.BaseController;
 import com.joewang.repast.base.ResultData;
+import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
 import com.joewang.repast.service.IMemberCoupon;
 import com.joewang.repast.service.IRepastService;
@@ -26,10 +27,30 @@ public class MemberCouponController extends BaseController {
     @Autowired
     private IMemberCoupon memberCoupon;
 
+    /**
+     * @desc: 根据用户id查询个人优惠券
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [memberid]
+     * @return: com.joewang.repast.base.ResultData
+     */
     @PostMapping("/selectMyCoupon")
     @ApiOperation(value = "查询个人优惠券", notes = "用户执行查询个人优惠券操作")
     public ResultData selectMyCoupon(Long memberid){
         List<HashMap> couponHistories = memberCoupon.selectMyCoupon(memberid);
         return operationSuccess(couponHistories);
+    }
+
+    /**
+     * @desc: 根据用户id查询个人可领通用优惠券
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [memberid]
+     * @return: com.joewang.repast.base.ResultData
+     */
+    @PostMapping("/selectConponCouldGetById")
+    @ApiOperation(value = "查询个人可领通用优惠券", notes = "用户执行查询个人可领通用优惠券操作")
+    public ResultData selectConponCouldGetById(Long memberid){
+        return operationSuccess(memberCoupon.selectConponCouldGetById(memberid));
     }
 }

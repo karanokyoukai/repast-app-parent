@@ -1,5 +1,6 @@
 package com.joewang.repast.controller;
 
+import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
 import com.joewang.repast.service.CouponHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,9 +39,21 @@ public class CouponHistoryController {
         return service.selectMyCoupon(memberid);
     }
 
-    @Scheduled(cron = "0 0 0 * * ")
+    @Scheduled(cron = "0 0 0 * * *")
     public void updateMemberCouponState(){
         Integer updateResult = service.updateMemberCouponState();
         System.out.println("成功更新" + updateResult + "条优惠券信息");
+    }
+
+    /**
+     * @desc: 根据用户id查询用户可领通用优惠券
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [memberid]
+     * @return: java.util.List<com.joewang.repast.model.Coupon>
+     */
+    @PostMapping("/selectConponCouldGetById")
+    public List<Coupon> selectConponCouldGetById(@RequestBody Long memberid){
+        return service.selectConponCouldGet(memberid);
     }
 }
