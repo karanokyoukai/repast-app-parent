@@ -1,7 +1,9 @@
 package com.joewang.repast.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
+import com.joewang.repast.page.PageInfos;
 import com.joewang.repast.service.CouponHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -55,5 +57,10 @@ public class CouponHistoryController {
     @PostMapping("/selectConponCouldGetById")
     public List<Coupon> selectConponCouldGetById(@RequestBody Long memberid){
         return service.selectConponCouldGet(memberid);
+    }
+
+    @PostMapping("/selectConponCouldGetByIdPage")
+    public PageInfo<Coupon> selectConponCouldGetByIdPage(@RequestBody PageInfos<Long> pageInfos){
+        return service.selectConponCouldGetPage(pageInfos);
     }
 }

@@ -36,6 +36,6 @@
     WHERE A.shop_id IS NULL
     AND A.member_level <![CDATA[<= ]]> (SELECT member_level_id FROM ums_member WHERE id = #{memberid})
     AND A.id NOT IN (SELECT B.coupon_id FROM sms_coupon_history B WHERE B.use_status != 2 )
-    AND A.end_time > CURTIME();
+    AND A.end_time > CURTIME()
   </select>
 </mapper>

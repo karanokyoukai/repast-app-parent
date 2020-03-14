@@ -1,9 +1,12 @@
 package com.joewang.repast.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.joewang.repast.base.BaseService;
 import com.joewang.repast.mapper.CouponHistoryMapper;
 import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
+import com.joewang.repast.page.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -58,5 +61,20 @@ public class CouponHistoryService extends BaseService<CouponHistory> {
      */
     public List<Coupon> selectConponCouldGet(Long memberid){
         return couponHistoryMapper.selectConponCouldGet(memberid);
+    }
+
+    /**
+     * @desc: 分页查询  据用户id查询用户可领通用优惠券
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [pageInfos]
+     * @return: com.github.pagehelper.PageInfo<com.joewang.repast.model.Coupon>
+     */
+    public PageInfo<Coupon> selectConponCouldGetPage(PageInfos<Long> pageInfos){
+        System.out.println(pageInfos.getT());
+        PageHelper.startPage(pageInfos.getPageNum(),pageInfos.getPageSize());
+        List<Coupon> coupons = couponHistoryMapper.selectConponCouldGet(pageInfos.getT());
+        PageInfo pageInfo = new PageInfo(coupons);
+        return pageInfo;
     }
 }

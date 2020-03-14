@@ -1,7 +1,10 @@
 package com.joewang.repast.service;
 
+import com.github.pagehelper.PageInfo;
+import com.joewang.repast.base.ResultData;
 import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
+import com.joewang.repast.page.PageInfos;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,4 +41,7 @@ public interface IMemberCoupon {
      */
     @PostMapping("/selectConponCouldGetById")
     List<Coupon> selectConponCouldGetById(@RequestBody Long memberid);
+
+    @PostMapping("/selectConponCouldGetByIdPage")
+    PageInfo<Coupon> selectConponCouldGetByIdPage(@RequestBody PageInfos<Long> pageInfos);
 }

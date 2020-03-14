@@ -4,6 +4,7 @@ import com.joewang.repast.base.BaseController;
 import com.joewang.repast.base.ResultData;
 import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
+import com.joewang.repast.page.PageInfos;
 import com.joewang.repast.service.IMemberCoupon;
 import com.joewang.repast.service.IRepastService;
 import io.swagger.annotations.Api;
@@ -52,5 +53,11 @@ public class MemberCouponController extends BaseController {
     @ApiOperation(value = "查询个人可领通用优惠券", notes = "用户执行查询个人可领通用优惠券操作")
     public ResultData selectConponCouldGetById(Long memberid){
         return operationSuccess(memberCoupon.selectConponCouldGetById(memberid));
+    }
+
+
+    @PostMapping("/selectConponCouldGetByIdPage")
+    public ResultData selectConponCouldGetByIdPage(PageInfos<Long> pageInfos){
+        return operationSuccess(memberCoupon.selectConponCouldGetByIdPage(pageInfos));
     }
 }
