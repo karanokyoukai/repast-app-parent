@@ -59,6 +59,13 @@ public class CouponHistoryController {
         return service.selectConponCouldGet(memberid);
     }
 
+    /**
+     * @desc: 根据用户id查询用户可领通用优惠券并实现分页
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [pageInfos]
+     * @return: com.github.pagehelper.PageInfo<com.joewang.repast.model.Coupon>
+     */
     @PostMapping("/selectConponCouldGetByIdPage")
     public PageInfo<Coupon> selectConponCouldGetByIdPage(@RequestBody PageInfos<Long> pageInfos){
         return service.selectConponCouldGetPage(pageInfos);

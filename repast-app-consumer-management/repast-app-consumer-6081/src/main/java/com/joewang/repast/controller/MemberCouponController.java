@@ -55,8 +55,15 @@ public class MemberCouponController extends BaseController {
         return operationSuccess(memberCoupon.selectConponCouldGetById(memberid));
     }
 
-
+    /**
+     * @desc: 跟据用户id查询个人可领通用优惠券并实现分页
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [pageInfos]
+     * @return: com.joewang.repast.base.ResultData
+     */
     @PostMapping("/selectConponCouldGetByIdPage")
+    @ApiOperation(value = "查询个人可领通用优惠券(分页)", notes = "个人可领通用优惠券的分页查询操作")
     public ResultData selectConponCouldGetByIdPage(PageInfos<Long> pageInfos){
         return operationSuccess(memberCoupon.selectConponCouldGetByIdPage(pageInfos));
     }
