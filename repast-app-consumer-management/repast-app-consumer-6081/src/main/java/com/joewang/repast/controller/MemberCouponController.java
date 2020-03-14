@@ -2,11 +2,8 @@ package com.joewang.repast.controller;
 
 import com.joewang.repast.base.BaseController;
 import com.joewang.repast.base.ResultData;
-import com.joewang.repast.model.Coupon;
-import com.joewang.repast.model.CouponHistory;
 import com.joewang.repast.page.PageInfos;
 import com.joewang.repast.service.IMemberCoupon;
-import com.joewang.repast.service.IRepastService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +37,12 @@ public class MemberCouponController extends BaseController {
     public ResultData selectMyCoupon(Long memberid){
         List<HashMap> couponHistories = memberCoupon.selectMyCoupon(memberid);
         return operationSuccess(couponHistories);
+    }
+
+    @PostMapping("/selectMyCouponPage")
+    @ApiOperation(value = "查询个人优惠券(分页)", notes = "查询个人优惠券分页查询操作")
+    public ResultData selectMyCouponPage(PageInfos<Long> pageInfos){
+        return operationSuccess(memberCoupon.selectMyCouponPage(pageInfos));
     }
 
     /**

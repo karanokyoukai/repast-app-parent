@@ -41,6 +41,18 @@ public class CouponHistoryController {
         return service.selectMyCoupon(memberid);
     }
 
+    /**
+     * @desc: 根据用户id查询用户所有优惠券 分页查询
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [pageInfos]
+     * @return: com.github.pagehelper.PageInfo<java.util.List<java.util.HashMap>>
+     */
+    @PostMapping("/selectMyCouponPage")
+    PageInfo<HashMap> selectMyCouponPage(@RequestBody PageInfos<Long> pageInfos){
+        return service.selectMyCouponPage(pageInfos);
+    }
+
     @Scheduled(cron = "0 0 0 * * *")
     public void updateMemberCouponState(){
         Integer updateResult = service.updateMemberCouponState();

@@ -33,6 +33,17 @@ public interface IMemberCoupon {
     List<HashMap> selectMyCoupon(@RequestBody Long memberid);
 
     /**
+     * @desc:
+     *      根据用户id查询用户所有优惠券  分页查询
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [memberid]
+     * @return: java.util.List<java.util.HashMap>
+     */
+    @PostMapping("/selectMyCouponPage")
+    PageInfo<HashMap> selectMyCouponPage(@RequestBody PageInfos<Long> pageInfos);
+
+    /**
      * @desc: 根据用户id查询用户可领通用优惠券
      * @author: Joe Wang
      * @date: 2020/3/14

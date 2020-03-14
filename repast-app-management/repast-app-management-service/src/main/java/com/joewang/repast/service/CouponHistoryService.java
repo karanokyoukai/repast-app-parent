@@ -8,8 +8,8 @@ import com.joewang.repast.model.Coupon;
 import com.joewang.repast.model.CouponHistory;
 import com.joewang.repast.page.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.HashMap;
@@ -39,6 +39,20 @@ public class CouponHistoryService extends BaseService<CouponHistory> {
      */
     public List<HashMap> selectMyCoupon(Long memberid){
         return couponHistoryMapper.selectMemberCoupon(memberid);
+    }
+
+    /**
+     * @desc: 查询用户所拥有的优惠券及优惠券信息 分页查询
+     * @author: Joe Wang
+     * @date: 2020/3/14
+     * @param: [pageInfos]
+     * @return: com.github.pagehelper.PageInfo<java.util.List<java.util.HashMap>>
+     */
+    public PageInfo<HashMap> selectMyCouponPage(PageInfos<Long> pageInfos){
+        PageHelper.startPage(pageInfos.getPageNum(),pageInfos.getPageSize());
+        List<HashMap> coupons = couponHistoryMapper.selectMemberCoupon(pageInfos.getT());
+        PageInfo pageInfo = new PageInfo(coupons);
+        return pageInfo;
     }
 
     /**
