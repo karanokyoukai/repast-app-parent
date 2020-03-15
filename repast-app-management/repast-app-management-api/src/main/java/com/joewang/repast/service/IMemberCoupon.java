@@ -62,4 +62,6 @@ public interface IMemberCoupon {
      */
     @PostMapping("/selectConponCouldGetByIdPage")
     PageInfo<Coupon> selectConponCouldGetByIdPage(@RequestBody PageInfos<Long> pageInfos);
+
+
 }

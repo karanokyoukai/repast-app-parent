@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import tk.mybatis.spring.annotation.MapperScan;
 
 /**
@@ -21,6 +22,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableEurekaClient
 @EnableCircuitBreaker
 @MapperScan("com.joewang.repast.mapper")
+@EnableScheduling
 public class ApplicationProvider8081 {
     public static void main(String[] args) {
         SpringApplication.run(ApplicationProvider8081.class, args);

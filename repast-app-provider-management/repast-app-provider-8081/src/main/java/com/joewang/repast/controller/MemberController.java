@@ -8,7 +8,10 @@ import com.joewang.repast.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
 
 /**
  * @description:
@@ -50,6 +53,46 @@ public class MemberController {
     @PostMapping("/updatename")
     public Integer updateUsername(@RequestBody Member member){
         return memberService.updateUsername(member);
+    }
+
+
+    /**
+     * @Description:
+     *      退出登录，清空token
+     * @author: zxz
+     * @date: 2020/3/13 17:28
+     * @param: []
+     * @return: java.lang.Boolean
+     */
+    @PostMapping("/loginOut")
+    public Boolean loginOut(@RequestParam("token") String token){
+        return memberService.loginOut(token);
+
+    /*
+     * @author Zero
+     * @description 根据ID进行查询个人信息 两表联查member——level
+     * @param  [member]
+     * @date 2020/3/15 14:55
+     * @return com.joewang.repast.model.Member
+     * @throws
+     **/
+    @PostMapping("/selectByKeyMember")
+    public HashMap selectByKeyMember(@RequestParam(value = "id") long key){
+        return memberService.selectByKeyMember(key);
+    }
+
+    /*
+     * @author Zero
+     * @description 修改个人信息
+     * @param  [member]
+     * @date 2020/3/15 14:58
+     * @return java.lang.Boolean
+     * @throws
+     **/
+    @PostMapping("/updateMember")
+    public Boolean updateMember(@RequestBody Member member){
+        return memberService.updateMember(member);
+
     }
 
 }

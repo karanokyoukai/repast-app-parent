@@ -207,6 +207,40 @@ public class BaseController {
         return resultData;
     }
 
+    /**
+     * @Description:
+     *      操作失败，返回系统消息，自定义返回值
+     * @author: zxz
+     * @date: 2020/3/10 13:59
+     * @param: [data]
+     * @return: com.aaa.zxz.repast.base.ResultData
+     */
+    protected ResultData operationFailed(Object data){
+        ResultData resultData = new ResultData();
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(FAILED.getMsg());
+        resultData.setData(data);
+        return resultData;
+    }
+
+    /**
+     * @Description:
+     *      操作失败，自定义消息，自定义返回值
+     * @author: zxz
+     * @date: 2020/3/10 14:02
+     * @param: [msg, data]
+     * @return: com.aaa.zxz.repast.base.ResultData
+     */
+    protected ResultData operationFailed(String msg,Object data){
+
+        ResultData resultData = new ResultData();
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(msg);
+        resultData.setData(data);
+        return resultData;
+    }
+
+
     // TODO 该类未完成，自行完成剩余的方法
 
 }
