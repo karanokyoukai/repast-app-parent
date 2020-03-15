@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.HashMap;
+
 @Repository
 public interface MemberMapper extends Mapper<Member> {
     /**
@@ -24,4 +26,14 @@ public interface MemberMapper extends Mapper<Member> {
      * @return
      **/
     Integer updateUser(@Param("openID") String openID,@Param("username") String username);
+
+    /*
+     * @author Zero
+     * @description 两表联查 查询信息的同时查询等级  member和member_level 传值主键id
+     * @param  [key]
+     * @date 2020/3/15 15:57
+     * @return com.joewang.repast.model.Member
+     * @throws
+     **/
+    HashMap selectByKey(long key);
 }

@@ -36,4 +36,8 @@
     <update id="updateUser" parameterType="string">
       UPDATE ums_member SET username = #{username} WHERE open_id=#{openID}
     </update>
+    <select id="selectByKey" parameterType="long" resultType="hashmap">
+        SELECT a.*,b.name AS member_level_name FROM ums_member a
+        JOIN ums_member_level b ON a.member_level_id =b.id WHERE a.id=#{id}
+    </select>
 </mapper>

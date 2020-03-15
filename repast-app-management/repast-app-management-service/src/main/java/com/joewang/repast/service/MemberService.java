@@ -8,7 +8,10 @@ import com.joewang.repast.utils.IDUtil;
 import com.joewang.repast.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.security.krb5.internal.KdcErrException;
 import tk.mybatis.mapper.common.Mapper;
+
+import java.util.HashMap;
 
 /**
  * @description:
@@ -79,5 +82,43 @@ public class MemberService extends BaseService<Member> {
         Integer integer = memberMapper.updateUser(member.getOpenId(), member.getUsername());
         System.out.println(integer);
         return integer;
+    }
+
+    /*
+     * @author Zero
+     * @description 根据ID进行查询个人信息 两表联查member——level
+     * @param  [member]
+     * @date 2020/3/15 14:55
+     * @return com.joewang.repast.model.Member
+     * @throws
+     **/
+    public HashMap selectByKeyMember(long key){
+        HashMap map = null;
+        try {
+             map = memberMapper.selectByKey(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
+    /*
+     * @author Zero
+     * @description 修改个人信息
+     * @param  [member]
+     * @date 2020/3/15 14:58
+     * @return java.lang.Boolean
+     * @throws
+     **/
+    public Boolean updateMember(Member member){
+        try {
+            Integer result = super.update(member);
+            if (result>0){
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

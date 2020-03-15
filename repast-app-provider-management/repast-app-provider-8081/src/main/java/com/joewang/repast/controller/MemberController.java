@@ -8,7 +8,10 @@ import com.joewang.repast.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
 
 /**
  * @description:
@@ -50,6 +53,32 @@ public class MemberController {
     @PostMapping("/updatename")
     public Integer updateUsername(@RequestBody Member member){
         return memberService.updateUsername(member);
+    }
+
+    /*
+     * @author Zero
+     * @description 根据ID进行查询个人信息 两表联查member——level
+     * @param  [member]
+     * @date 2020/3/15 14:55
+     * @return com.joewang.repast.model.Member
+     * @throws
+     **/
+    @PostMapping("/selectByKeyMember")
+    public HashMap selectByKeyMember(@RequestParam(value = "id") long key){
+        return memberService.selectByKeyMember(key);
+    }
+
+    /*
+     * @author Zero
+     * @description 修改个人信息
+     * @param  [member]
+     * @date 2020/3/15 14:58
+     * @return java.lang.Boolean
+     * @throws
+     **/
+    @PostMapping("/updateMember")
+    public Boolean updateMember(@RequestBody Member member){
+        return memberService.updateMember(member);
     }
 
 }
