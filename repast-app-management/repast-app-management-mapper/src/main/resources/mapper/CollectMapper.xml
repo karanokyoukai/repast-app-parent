@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joewang.repast.mapper.CollectMapper">
+  <resultMap id="BaseResultMap" type="com.joewang.repast.model.Collect">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <id column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="member_id" jdbcType="BIGINT" property="memberId" />
+    <result column="shop_id" jdbcType="BIGINT" property="shopId" />
+    <result column="collect_time" jdbcType="TIMESTAMP" property="collectTime" />
+    <result column="collect_product_status" jdbcType="INTEGER" property="collectProductStatus" />
+    <result column="collect_shop_status" jdbcType="INTEGER" property="collectShopStatus" />
+  </resultMap>
+  <select id="selectCollectByMemberId" resultType="hashmap" parameterType="long">
+     select b.*,c.* FROM ums_collect a
+        JOIN pms_product b ON a.product_id=b.id
+        JOIN ums_shop_information c on a.shop_id=c.id
+        where member_id=#{memberid}
+  </select>
+    <update id="updateCollectShopStatus" >
+        UPDATE ums_collect set collect_shop_status=2 where shop_id=#{shopid}
+    </update>
+
+    <update id="updateCollectProductStatus" >
+        UPDATE ums_collect set collect_product_status=2 where product_id=#{productid}
+    </update>
+</mapper>
