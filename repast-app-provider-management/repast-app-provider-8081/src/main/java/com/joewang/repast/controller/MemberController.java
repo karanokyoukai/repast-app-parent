@@ -65,9 +65,9 @@ public class MemberController {
      * @return: java.lang.Boolean
      */
     @PostMapping("/loginOut")
-    public Boolean loginOut(@RequestParam("token") String token){
+    public Boolean loginOut(@RequestParam("token") String token) {
         return memberService.loginOut(token);
-
+    }
     /*
      * @author Zero
      * @description 根据ID进行查询个人信息 两表联查member——level

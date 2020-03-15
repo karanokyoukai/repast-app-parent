@@ -37,9 +37,9 @@ public class MemberService extends BaseService<Member> {
      * @param: [member]
      * @return: java.lang.Boolean
      */
-    public Member doLogin(Member member){
+    public Member doLogin(Member member) {
         //判断用户是否为null
-        if (member != null && member.getOpenId() != null && StringUtil.isNotEmpty(member.getOpenId())){
+        if (member != null && member.getOpenId() != null && StringUtil.isNotEmpty(member.getOpenId())) {
             //再次通过openid判断是否是新用户
             System.out.println(member.getOpenId());
             Member mb = memberMapper.selectMemberByOpenID(member.getOpenId());
@@ -47,20 +47,20 @@ public class MemberService extends BaseService<Member> {
             String token = IDUtil.getUUID() + member.getOpenId();
             try {
                 //判断查询到的用户是否为空
-                if (mb != null){
+                if (mb != null) {
                     //说明不是新用户，之前一定登陆过，只修改token即可
                     mb.setToken(token);
                     Integer updateResult = super.update(mb);
                     //判断是否更新成功
-                    if (updateResult > 0){
+                    if (updateResult > 0) {
                         return mb;
                     }
-                }else {
+                } else {
                     //mb为空，是新用户，插入
                     member.setToken(token);
                     Integer insertResult = super.save(member);
                     //判断是否新增成功
-                    if (insertResult > 0){
+                    if (insertResult > 0) {
                         return member;
                     }
                 }
@@ -70,6 +70,7 @@ public class MemberService extends BaseService<Member> {
         }
         return null;
     }
+
     /*
      * @Author junzheng Han
      * 修改昵称方法
@@ -77,7 +78,7 @@ public class MemberService extends BaseService<Member> {
      * @Param [member]
      * @return java.lang.Integer
      **/
-    public Integer updateUsername(Member member){
+    public Integer updateUsername(Member member) {
         System.out.println(member.getUsername());
         System.out.println("-----------------------");
         Integer integer = memberMapper.updateUser(member.getOpenId(), member.getUsername());
@@ -87,23 +88,25 @@ public class MemberService extends BaseService<Member> {
 
 
     /**
-     * @Description:
-     *      退出登录，清空token
+     * @Description: 退出登录，清空token
      * @author: zxz
      * @date: 2020/3/13 17:28
      * @param: []
      * @return: java.lang.Boolean
      */
-    public Boolean loginOut(String token){
+    public Boolean loginOut(String token) {
         try {
-            if (token != null && !token.equals("")  && StringUtil.isNotEmpty(token) ){
+            if (token != null && !token.equals("") && StringUtil.isNotEmpty(token)) {
                 Integer result = memberMapper.updateToken(token);
-                if (result > 0){
+                if (result > 0) {
                     return true;
                 }
             }
-        }catch (Exception e){
-
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     /*
      * @author Zero
      * @description 根据ID进行查询个人信息 两表联查member——level

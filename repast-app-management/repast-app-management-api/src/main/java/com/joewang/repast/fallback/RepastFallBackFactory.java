@@ -17,17 +17,9 @@ import java.util.List;
  */
 @Component
 public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
-
-
     @Override
     public IRepastService create(Throwable throwable) {
-        IRepastService repastService = new IRepastService() {
-
-    @Override
-    public IRepastService create(Throwable throwable) {
-        IRepastService repastService =new IRepastService() {
-
-
+        IRepastService iRepastService =new IRepastService() {
             @Override
             public Member doLogin(Member member) {
                 return null;
@@ -44,14 +36,11 @@ public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
             }
 
             @Override
-
             public Boolean loginOut(String token) {
-                System.out.println("熔断退出");
                 return null;
             }
 
-
-
+            @Override
             public HashMap selectByKeyMember(long key) {
                 return null;
             }
@@ -60,9 +49,7 @@ public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
             public Boolean updateMember(Member member) {
                 return null;
             }
-
         };
         return null;
     }
-
 }
