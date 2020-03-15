@@ -7,6 +7,7 @@ import com.joewang.repast.service.IRepastService;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,18 +18,23 @@ import java.util.List;
 @Component
 public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
 
+
     @Override
     public IRepastService create(Throwable throwable) {
         IRepastService repastService = new IRepastService() {
+
+    @Override
+    public IRepastService create(Throwable throwable) {
+        IRepastService repastService =new IRepastService() {
+
+
             @Override
             public Member doLogin(Member member) {
-                System.out.println("熔断登录方法");
                 return null;
             }
 
             @Override
             public Boolean addLoginLog(LoginLog loginLog) {
-                System.out.println("熔断日志写入方法");
                 return null;
             }
 
@@ -38,13 +44,25 @@ public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
             }
 
             @Override
+
             public Boolean loginOut(String token) {
                 System.out.println("熔断退出");
                 return null;
             }
 
 
+
+            public HashMap selectByKeyMember(long key) {
+                return null;
+            }
+
+            @Override
+            public Boolean updateMember(Member member) {
+                return null;
+            }
+
         };
-        return repastService;
+        return null;
     }
+
 }

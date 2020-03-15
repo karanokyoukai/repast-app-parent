@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,7 +18,8 @@ import java.util.List;
  * @author: Joe Wang
  * @date: 2020-03-11
  */
-@FeignClient(value = "memberinfo-interface", fallbackFactory = RepastFallBackFactory.class, contextId = "MemberInfoClient")
+//@FeignClient(value = "memberinfo-interface", fallbackFactory = RepastFallBackFactory.class, contextId = "MemberInfoClient")
+@FeignClient(value = "memberinfo-interface", contextId = "MemberInfoClient")
 public interface IRepastService {
 
     /**
@@ -50,6 +52,7 @@ public interface IRepastService {
     @PostMapping("/updatename")
     Integer updateUsername(@RequestBody Member member);
 
+
     /**
      * @Description:
      *      退出登录，清空token
@@ -60,4 +63,27 @@ public interface IRepastService {
      */
     @PostMapping("/loginOut")
     Boolean loginOut(@RequestParam("token") String token);
+
+    /*
+     * @author Zero
+     * @description 根据ID进行查询个人信息 两表联查member——level
+     * @param  [member]
+     * @date 2020/3/15 14:55
+     * @return com.joewang.repast.model.Member
+     * @throws
+     **/
+    @PostMapping("/selectByKeyMember")
+    HashMap selectByKeyMember(@RequestParam(value = "id") long key);
+
+    /*
+     * @author Zero
+     * @description 修改个人信息
+     * @param  [member]
+     * @date 2020/3/15 14:58
+     * @return java.lang.Boolean
+     * @throws
+     **/
+    @PostMapping("/updateMember")
+    Boolean updateMember(@RequestBody Member member);
+
 }

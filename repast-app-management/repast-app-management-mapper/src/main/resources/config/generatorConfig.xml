@@ -54,7 +54,24 @@
         </javaClientGenerator>
 
 
+
         <table tableName="pms_comment_replay" domainObjectName="CommentReplay"
+
+        <table tableName="ums_integration_change_history" domainObjectName="InterHistory"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--mysql 配置-->
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
+        </table>
+
+        <table tableName="ums_member_rule_setting" domainObjectName="RuleSetting"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--mysql 配置-->
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
+        </table>
+
+        <table tableName="ums_member_receive_address" domainObjectName="ReceiveAddress"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <!--mysql 配置-->
