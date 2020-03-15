@@ -8,6 +8,7 @@ import com.joewang.repast.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -50,6 +51,19 @@ public class MemberController {
     @PostMapping("/updatename")
     public Integer updateUsername(@RequestBody Member member){
         return memberService.updateUsername(member);
+    }
+
+    /**
+     * @Description:
+     *      退出登录，清空token
+     * @author: zxz
+     * @date: 2020/3/13 17:28
+     * @param: []
+     * @return: java.lang.Boolean
+     */
+    @PostMapping("/loginOut")
+    public Boolean loginOut(@RequestParam("token") String token){
+        return memberService.loginOut(token);
     }
 
 }

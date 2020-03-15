@@ -36,4 +36,8 @@
     <update id="updateUser" parameterType="string">
       UPDATE ums_member SET username = #{username} WHERE open_id=#{openID}
     </update>
+
+  <update id="updateToken" parameterType="String">
+    update ums_member set token = null where token = #{token}
+  </update>
 </mapper>

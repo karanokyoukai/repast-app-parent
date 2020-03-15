@@ -25,4 +25,14 @@
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="member_level" jdbcType="INTEGER" property="memberLevel" />
   </resultMap>
+
+  <select id="selectPerLimit" parameterType="Long" resultType="Integer">
+    select per_limit from sms_coupon where id = #{couponsId}
+  </select>
+
+
+  <select id="selectEnableTime" resultMap="BaseResultMap">
+    select * from  sms_coupon where   enable_time != null
+  </select>
+
 </mapper>

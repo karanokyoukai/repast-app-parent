@@ -22,6 +22,7 @@ public class MemberService extends BaseService<Member> {
     private MemberMapper memberMapper;
 
 
+    @Override
     public Mapper<Member> getMapper() {
         return memberMapper;
     }
@@ -80,4 +81,28 @@ public class MemberService extends BaseService<Member> {
         System.out.println(integer);
         return integer;
     }
+
+    /**
+     * @Description:
+     *      退出登录，清空token
+     * @author: zxz
+     * @date: 2020/3/13 17:28
+     * @param: []
+     * @return: java.lang.Boolean
+     */
+    public Boolean loginOut(String token){
+        try {
+            if (token != null && !token.equals("")  && StringUtil.isNotEmpty(token) ){
+                Integer result = memberMapper.updateToken(token);
+                if (result > 0){
+                    return true;
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 }

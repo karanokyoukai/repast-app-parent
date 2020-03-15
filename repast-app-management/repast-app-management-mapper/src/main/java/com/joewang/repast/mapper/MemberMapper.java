@@ -24,4 +24,14 @@ public interface MemberMapper extends Mapper<Member> {
      * @return
      **/
     Integer updateUser(@Param("openID") String openID,@Param("username") String username);
+    /**
+     * @Description:
+     *      退出登录
+     * @author:
+     * @date: 2020/3/15 15:11
+     * @param: [token]
+     * @return: java.lang.Integer
+     */
+    Integer updateToken(String token);
+
 }

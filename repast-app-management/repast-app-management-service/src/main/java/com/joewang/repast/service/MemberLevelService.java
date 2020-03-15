@@ -20,6 +20,7 @@ public class MemberLevelService extends BaseService<MemberLevel> {
     @Autowired
     private MemberLevelMapper memberLevelMapper;
 
+    @Override
     public Mapper<MemberLevel> getMapper() {
         return memberLevelMapper;
     }

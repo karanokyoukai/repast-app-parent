@@ -11,7 +11,10 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import static com.joewang.repast.status.LoginStatus.LOGOUT_WRONG;
 
 /**
  * @description:
@@ -44,6 +47,25 @@ public class MemberController extends BaseController {
             return super.loginFailed();
         }
         return null;
+    }
+
+
+    /**
+     * @Description:
+     *      退出登录，清空token
+     * @author: zxz
+     * @date: 2020/3/13 17:28
+     * @param: []
+     * @return: java.lang.Boolean
+     */
+    @PostMapping("/loginOut")
+    @ApiOperation(value = "退出登录", notes = "退出登录并清空token")
+    public ResultData loginOut(@RequestParam("token") String token){
+        Boolean resultBoolean = repastService.loginOut(token);
+        if (resultBoolean){
+            return super.operationSuccess();
+        }
+        return super.operationFailed(LOGOUT_WRONG.getMsg());
     }
 
 

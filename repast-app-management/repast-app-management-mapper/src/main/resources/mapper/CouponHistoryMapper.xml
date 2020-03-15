@@ -38,4 +38,20 @@
     AND A.id NOT IN (SELECT B.coupon_id FROM sms_coupon_history B WHERE B.use_status != 2 )
     AND A.end_time > CURTIME()
   </select>
+
+  <select id="selectByMemberId" parameterType="Long" resultType="Map">
+    select * from sms_coupon_history a
+    join sms_coupon b on a.coupon_id = b.id
+    where member_id = #{memberId}
+  </select>
+
+  <update id="updateUseStatus" >
+    UPDATE sms_coupon_history A  SET A.use_status = 2
+    WHERE A.use_status=0 and A.coupon_id IN (SELECT B.id FROM sms_coupon B WHERE B.end_time > CURTIME());
+  </update>
+
+  <update id="deleteCoupons" parameterType="Long">
+    update sms_coupon_history set use_status = 3 where id = #{id}
+  </update>
+
 </mapper>

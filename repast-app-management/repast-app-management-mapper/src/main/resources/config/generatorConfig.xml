@@ -28,7 +28,7 @@
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/mtdb?useUnicode=true&amp;characterEncoding=utf8"
                         userId="root"
-                        password="root">
+                        password="admin">
         </jdbcConnection>
 
         <!-- 生成模型的包名和位置 -->
@@ -53,13 +53,8 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="ums_member" domainObjectName="Member"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false">
-            <!--mysql 配置-->
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
-        <table tableName="ums_member_login_log" domainObjectName="LoginLog"
+
+        <table tableName="pms_comment_replay" domainObjectName="CommentReplay"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <!--mysql 配置-->

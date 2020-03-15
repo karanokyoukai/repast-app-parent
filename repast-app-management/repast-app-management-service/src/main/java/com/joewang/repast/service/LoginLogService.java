@@ -18,6 +18,7 @@ public class LoginLogService extends BaseService<LoginLog> {
     @Autowired
     private LoginLogMapper loginLogMapper;
 
+    @Override
     public Mapper<LoginLog> getMapper() {
         return loginLogMapper;
     }

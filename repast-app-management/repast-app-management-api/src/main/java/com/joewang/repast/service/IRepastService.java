@@ -7,6 +7,7 @@ import com.joewang.repast.model.Member;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -48,4 +49,15 @@ public interface IRepastService {
      **/
     @PostMapping("/updatename")
     Integer updateUsername(@RequestBody Member member);
+
+    /**
+     * @Description:
+     *      退出登录，清空token
+     * @author: zxz
+     * @date: 2020/3/13 17:28
+     * @param: []
+     * @return: java.lang.Boolean
+     */
+    @PostMapping("/loginOut")
+    Boolean loginOut(@RequestParam("token") String token);
 }
