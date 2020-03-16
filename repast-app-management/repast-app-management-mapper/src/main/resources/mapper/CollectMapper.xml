@@ -26,4 +26,21 @@
     <update id="updateCollectProductStatus" >
         UPDATE ums_collect set collect_product_status=2 where product_id=#{productid}
     </update>
+    
+    <select id="selectProductPublishStatus" resultType="Integer" parameterType="long">
+        SELECT publish_status from pms_product where id=#{productid}
+    </select>
+
+    <select id="selectShopStatus" resultType="Integer" parameterType="long">
+    select STATUS from ums_shop_information where id=#{shopid}
+
+    </select>
+
+    <update id="updateProductCollectStatus">
+        UPDATE ums_collect set collect_product_status=1 where product_id in  (SELECT id from pms_product where publish_status=0)
+    </update>
+
+    <update id="updateShopCollectStatus">
+        UPDATE ums_collect set collect_shop_status=1 where shop_id in  (SELECT id from ums_shop_information where not in (1))
+    </update>
 </mapper>

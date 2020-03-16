@@ -54,20 +54,45 @@ public class CollectService extends BaseService {
      * @date 2020/3/15 12:04
      * @parameter [collect, token]
      * @return java.lang.Boolean
-     * @description 收藏店铺 商品
+     * @description 收藏店铺
      */
     public Boolean insertShopCollect(Collect collect,String token){
         Boolean b=DecideToken.decideToken(token);
         collect.setCollectShopStatus(0);
         if (b){
-            Integer integer=collectMapper.insert(collect);
-            if(integer>0){
-                return true;
+            Long shopId=collect.getShopId();
+            Integer shopStatus=collectMapper.selectShopStatus(shopId);
+            if (shopStatus==1&&shopStatus.equals(1)&&shopStatus!=null){
+                Integer integer=collectMapper.insert(collect);
+                if(integer>0){
+                    return true;
+                }
             }
         }
         return false;
     }
-
+    /**
+     * @author dawang
+     * @date 2020/3/16 14:41
+     * @parameter [collect, token]
+     * @return java.lang.Boolean
+     * @description 收藏商品
+     */
+    public Boolean insertProductCollect(Collect collect,String token){
+        Boolean b=DecideToken.decideToken(token);
+        collect.setCollectProductStatus(0);
+        if (b){
+            Long productId=collect.getProductId();
+            Integer productStatus=collectMapper.selectProductPublishStatus(productId);
+            if (productStatus==1&&productStatus!=null&&productStatus.equals(1)){
+                Integer integer=collectMapper.insert(collect);
+                if(integer>0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public Boolean updateCollectShopStatus(Long shopId,String token){
         /**
          * @author dawang
@@ -100,6 +125,34 @@ public class CollectService extends BaseService {
             if (integer>0){
                 return true;
             }
+        }
+        return false;
+    }
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:26
+     * @parameter []
+     * @return java.lang.Boolean
+     * @description  定时任务 商品如果已下架 将收藏状态改为 已收藏 但是商品已下架
+     */
+    public Boolean updateProductCollectStatus(){
+        Integer integer=collectMapper.updateProductCollectStatus();
+        if (integer>0){
+            return true;
+        }
+        return  false;
+    }
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:26
+     * @parameter []
+     * @return java.lang.Boolean
+     * @description 定时任务 店铺如果关门 将收藏状态改为 已收藏
+     */
+    public Boolean updateShopCollectStatus(){
+        Integer integer=collectMapper.updateShopCollectStatus();
+        if (integer>0){
+            return true;
         }
         return false;
     }

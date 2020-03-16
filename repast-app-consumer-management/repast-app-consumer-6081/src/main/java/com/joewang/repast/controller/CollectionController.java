@@ -61,6 +61,22 @@ public class CollectionController extends BaseController {
         return super.operationFailed();
     }
 
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:04
+     * @parameter [collect, token]
+     * @return com.joewang.repast.base.ResultData
+     * @description 新增商品收藏
+     */
+    @PostMapping("/insertProductCollect")
+    @ApiOperation(value = "新增个人商品收藏记录", notes = "用户执行新增个人商品收藏记录操作")
+    public ResultData insertProductCollect(Collect collect,String token){
+        Boolean b=iCollectionService.insertProductCollect(collect,token);
+        if (b) {
+            return super.operationSuccess();
+        }
+        return super.operationFailed();
+    }
 
     /**
      * @author dawang
@@ -91,6 +107,38 @@ public class CollectionController extends BaseController {
     public ResultData updateCollectShopStatus(Long shopId,String token){
         Boolean b=iCollectionService.updateCollectShopStatus(shopId,token);
         if (b) {
+            return super.operationSuccess();
+        }
+        return super.operationFailed();
+    }
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:39
+     * @parameter []
+     * @return com.joewang.repast.base.ResultData
+     * @description 定时十二点 商品如果已下架 将收藏状态改为 已收藏 但是商品已下架
+     */
+    @PostMapping("/updateProductCollectStatus")
+    @ApiOperation(value = "商品下架修改收藏记录", notes = "用户执行商品下架修改收藏记录操作")
+    public ResultData updateProductCollectStatus(){
+        Boolean b=iCollectionService.updateProductCollectStatus();
+        if (b){
+            return super.operationSuccess();
+        }
+        return super.operationFailed();
+    }
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:39
+     * @parameter []
+     * @return com.joewang.repast.base.ResultData
+     * @description 定时十二点 店铺如果关门 将收藏状态改为 已收藏
+     */
+    @PostMapping("/updateShopCollectStatus")
+    @ApiOperation(value = "店铺关门修改收藏记录", notes = "用户执行店铺关门修改收藏记录操作")
+    public ResultData updateShopCollectStatus(){
+        Boolean b=iCollectionService.updateShopCollectStatus();
+        if (b){
             return super.operationSuccess();
         }
         return super.operationFailed();

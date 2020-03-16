@@ -26,7 +26,7 @@ public interface ICollectionService {
      * @description 根据用户id分页查询 收藏记录
      */
     @PostMapping("/selectAllCollectByMemberId")
-    PageInfo<HashMap> selectAllCollectByMemberId(@RequestBody PageInfos<Long> pageInfos, @RequestParam(value = "token") String token);
+     PageInfo<HashMap> selectAllCollectByMemberId(@RequestBody PageInfos<Long> pageInfos, @RequestParam(value = "token") String token);
 
 
     @PostMapping("/insertShopCollect")
@@ -35,9 +35,18 @@ public interface ICollectionService {
      * @date 2020/3/15 12:10
      * @parameter [collect, token]
      * @return java.lang.Boolean
-     * @description 新增店铺商品收藏
+     * @description 新增店铺收藏
      */
-    Boolean insertShopCollect(@RequestBody Collect collect,@RequestParam(value = "token") String token);
+     Boolean insertShopCollect(@RequestBody Collect collect,@RequestParam(value = "token") String token);
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:03
+     * @parameter
+     * @return
+     * @description 新增商品收藏
+     */
+    @PostMapping("/insertProductCollect")
+     Boolean insertProductCollect(@RequestBody Collect collect,@RequestParam(value = "token") String token);
 
     /**
      * @author dawang
@@ -47,9 +56,34 @@ public interface ICollectionService {
      * @description 取消店铺收藏
      */
     @PostMapping("/updateCollectShopStatus")
-    Boolean updateCollectShopStatus(@RequestParam(value = "shopId") Long shopId,@RequestParam(value = "token") String token);
+     Boolean updateCollectShopStatus(@RequestParam(value = "shopId") Long shopId,@RequestParam(value = "token") String token);
 
-
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:33
+     * @parameter [productId, token]
+     * @return java.lang.Boolean
+     * @description 取消商品收藏
+     */
     @PostMapping("/updateCollectProductStatus")
-    Boolean updateCollectProductStatus(@RequestParam(value = "productId") Long productId,@RequestParam(value = "token") String token);
+     Boolean updateCollectProductStatus(@RequestParam(value = "productId") Long productId,@RequestParam(value = "token") String token);
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:35
+     * @parameter []
+     * @return java.lang.Boolean
+     * @description 定时十二点 商品如果已下架 将收藏状态改为 已收藏 但是商品已下架
+     */
+    @PostMapping("/updateProductCollectStatus")
+     Boolean updateProductCollectStatus();
+
+    /**
+     * @author dawang
+     * @date 2020/3/16 15:35
+     * @parameter []
+     * @return java.lang.Boolean
+     * @description 定时十二点 店铺如果关门 将收藏状态改为 已收藏
+     */
+    @PostMapping("/updateShopCollectStatus")
+    Boolean updateShopCollectStatus();
 }
