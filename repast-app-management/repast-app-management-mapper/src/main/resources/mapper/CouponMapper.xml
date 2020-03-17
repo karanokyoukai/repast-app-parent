@@ -26,7 +26,7 @@
     <result column="member_level" jdbcType="INTEGER" property="memberLevel" />
   </resultMap>
 
-  <select id="selectPerLimit" parameterType="Long" resultType="Integer">
+  <select id="selectPerLimit" parameterType="long" resultType="integer">
     select per_limit from sms_coupon where id = #{couponsId}
   </select>
 
