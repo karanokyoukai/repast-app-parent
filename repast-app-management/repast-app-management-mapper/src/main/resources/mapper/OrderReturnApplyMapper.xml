@@ -34,4 +34,24 @@
     <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
     <result column="receive_note" jdbcType="VARCHAR" property="receiveNote" />
   </resultMap>
+
+  <select id="selectMyOrderRetuenApplyByOrderId" parameterType="long" resultType="com.joewang.repast.model.OrderReturnApply">
+    SELECT * FROM oms_order_return_apply WHERE order_id = #{orderId}
+  </select>
+
+  <select id="selectOrderRetuenByShopId" parameterType="long" resultType="com.joewang.repast.model.OrderReturnApply">
+    SELECT * FROM oms_order_return_apply WHERE shop_id = #{shopId}
+  </select>
+
+  <update id="agreeOrderReturnById" parameterType="com.joewang.repast.model.OrderReturnApply">
+    UPDATE oms_order_return_apply SET `status` = 1, handle_note = #{handleNote}, handle_man = #{handleMan}, handle_time = CURTIME() WHERE id = #{id}
+  </update>
+  
+  <update id="confirmOrderReturnById" parameterType="com.joewang.repast.model.OrderReturnApply">
+    UPDATE oms_order_return_apply SET `status` = 2, handle_note = #{handleNote}, handle_man = #{handleMan}, handle_time = CURTIME() WHERE id = #{id}
+  </update>
+
+  <update id="refuseOrderReturnById" parameterType="com.joewang.repast.model.OrderReturnApply">
+    UPDATE oms_order_return_apply SET `status` = 3, handle_note = #{handleNote}, handle_man = #{handleMan}, handle_time = CURTIME() WHERE id = #{id}
+  </update>
 </mapper>
