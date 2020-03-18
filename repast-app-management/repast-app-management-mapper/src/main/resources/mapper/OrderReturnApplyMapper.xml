@@ -54,4 +54,5 @@
   <update id="refuseOrderReturnById" parameterType="com.joewang.repast.model.OrderReturnApply">
     UPDATE oms_order_return_apply SET `status` = 3, handle_note = #{handleNote}, handle_man = #{handleMan}, handle_time = CURTIME() WHERE id = #{id}
   </update>
+
 </mapper>
