@@ -16,21 +16,21 @@
             <property name="beginningDelimiter" value="`"/>
             <property name="endingDelimiter" value="`"/>
         </plugin>
-    
+
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="false"/>
             <property name="suppressDate" value="false"/>
             <property name="addRemarkComments" value="false"/>
         </commentGenerator>
-    
+
         <!-- 数据库链接URL、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/mtdb?useUnicode=true&amp;characterEncoding=utf8"
                         userId="root"
-                        password="admin">
+                        password="root">
         </jdbcConnection>
-    
+
         <!-- 生成模型的包名和位置 -->
         <javaModelGenerator targetPackage="com.joewang.repast.model" targetProject="../repast-app-management-model/src/main/java">
             <!-- 是否  自动为每一个生成的类创建一个构造方法-->
@@ -43,38 +43,28 @@
             <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-    
+
         <!-- 生成的映射文件包名和位置 -->
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
-    
+
         <javaClientGenerator targetPackage="com.joewang.repast.mapper" targetProject="src/main/java/" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
-        </javaClientGenerator> <table tableName="ums_collect" domainObjectName="Collect"
+        </javaClientGenerator>
 
-
-    <table tableName="pms_comment_replay" domainObjectName="CommentReplay"
-    
-        <table tableName="ums_integration_change_history" domainObjectName="InterHistory"
+        <table tableName="sms_coupon" domainObjectName="Coupon"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
             <!--mysql 配置-->
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
         </table>
-    
-        <table tableName="ums_member_rule_setting" domainObjectName="RuleSetting" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-                   enableSelectByExample="false" selectByExampleQueryId="false">
-                <!--mysql 配置-->
-                <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-            </table>
-     <!--<table tableName="ums_member_login_log" domainObjectName="LoginLog"
-        <table tableName="ums_member_receive_address" domainObjectName="ReceiveAddress"
-                   enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-                   enableSelectByExample="false" selectByExampleQueryId="false">
-                &lt;!&ndash;mysql 配置&ndash;&gt;
-                <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-            </table>-->
-    </context>
+        <table tableName="sms_coupon_history" domainObjectName="CouponHistory"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+            <!--mysql 配置-->
+            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
+        </table>
 
+    </context>
 </generatorConfiguration>
