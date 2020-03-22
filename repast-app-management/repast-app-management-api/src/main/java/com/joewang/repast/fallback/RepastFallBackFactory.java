@@ -6,6 +6,7 @@ import com.joewang.repast.model.Member;
 import com.joewang.repast.service.IRepastService;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +48,11 @@ public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
 
             @Override
             public Boolean updateMember(Member member) {
+                return null;
+            }
+
+            @Override
+            public Boolean uploadFile(MultipartFile file, String token) {
                 return null;
             }
         };
