@@ -16,9 +16,9 @@ import java.util.List;
  * @since JDK 1.8
  */
 @Component
-public class CommentFallBackFactory implements FallbackFactory<Comment> {
+public class CommentFallBackFactory implements FallbackFactory<ICommentService> {
     @Override
-    public Comment create(Throwable throwable) {
+    public ICommentService create(Throwable throwable) {
         ICommentService iCommentService = new ICommentService() {
             @Override
             public List<Comment> selectCommentByProductId(Long productId, String token) {
