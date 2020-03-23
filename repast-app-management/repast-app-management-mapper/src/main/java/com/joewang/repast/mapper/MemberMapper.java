@@ -48,5 +48,13 @@ public interface MemberMapper extends Mapper<Member> {
      * @throws
      **/
     HashMap selectByKey(long key);
+    /**
+     * @author dawang
+     * @date 2020/3/20 15:23
+     * @parameter
+     * @return
+     * @description 根据token验证用户
+     */
+    Member selectMemberByToken(String token);
 
 }

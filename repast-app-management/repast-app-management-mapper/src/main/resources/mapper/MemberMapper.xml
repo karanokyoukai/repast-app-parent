@@ -46,5 +46,7 @@
         SELECT a.*,b.name AS member_level_name FROM ums_member a
         JOIN ums_member_level b ON a.member_level_id =b.id WHERE a.id=#{id}
     </select>
-
+    <select id="selectMemberByToken" resultType="com.joewang.repast.model.Member">
+      select * from ums_member where token=#{token}
+    </select>
 </mapper>

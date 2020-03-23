@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joewang.repast.mapper.SkuStockMapper">
+  <resultMap id="BaseResultMap" type="com.joewang.repast.model.SkuStock">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="shop_id" jdbcType="BIGINT" property="shopId" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="sku_code" jdbcType="VARCHAR" property="skuCode" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="low_stock" jdbcType="INTEGER" property="lowStock" />
+    <result column="sp1" jdbcType="VARCHAR" property="sp1" />
+    <result column="sp2" jdbcType="VARCHAR" property="sp2" />
+    <result column="sp3" jdbcType="VARCHAR" property="sp3" />
+    <result column="pic" jdbcType="VARCHAR" property="pic" />
+    <result column="sale" jdbcType="INTEGER" property="sale" />
+    <result column="promotion_price" jdbcType="DECIMAL" property="promotionPrice" />
+    <result column="lock_stock" jdbcType="INTEGER" property="lockStock" />
+  </resultMap>
+  <select id="selectSkuById" resultMap="BaseResultMap" parameterType="com.joewang.repast.model.SkuStock">
+   SELECT
+	id,
+	sku_code,
+	sp1,
+	sp2,
+	sp3,
+	stock
+FROM
+	pms_sku_stock
+WHERE
+	product_id = #{productId}
+  </select>
+</mapper>

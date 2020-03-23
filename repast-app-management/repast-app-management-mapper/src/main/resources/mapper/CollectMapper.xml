@@ -17,7 +17,7 @@
      select b.*,c.* FROM ums_collect a
         JOIN pms_product b ON a.product_id=b.id
         JOIN ums_shop_information c on a.shop_id=c.id
-        where member_id=#{memberid}
+        where member_id=#{memberid} and a.collect_product_status=0 and a.collect_shop_status=0
   </select>
     <update id="updateCollectShopStatus" >
         UPDATE ums_collect set collect_shop_status=2 where shop_id=#{shopid}

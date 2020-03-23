@@ -51,19 +51,20 @@
     
         <javaClientGenerator targetPackage="com.joewang.repast.mapper" targetProject="src/main/java/" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
-        </javaClientGenerator> <table tableName="ums_collect" domainObjectName="Collect"
+        </javaClientGenerator>
+        <!-- <table tableName="ums_collect" domainObjectName="Collect"
 
 
-    <table tableName="pms_comment_replay" domainObjectName="CommentReplay"
+   <table tableName="pms_comment_replay" domainObjectName="CommentReplay"
     
         <table tableName="ums_integration_change_history" domainObjectName="InterHistory"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
-            <!--mysql 配置-->
+            &lt;!&ndash;mysql 配置&ndash;&gt;
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        </table>-->
     
-        <table tableName="ums_member_rule_setting" domainObjectName="RuleSetting" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+        <table tableName="pms_sku_stock" domainObjectName="SkuStock" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                    enableSelectByExample="false" selectByExampleQueryId="false">
                 <!--mysql 配置-->
                 <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>

@@ -2,9 +2,12 @@ package com.joewang.repast.base;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.joewang.repast.mapper.MemberMapper;
+import com.joewang.repast.model.Member;
 import com.joewang.repast.page.PageInfos;
 import com.joewang.repast.utils.Map2BeanUtil;
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.util.Sqls;
@@ -23,7 +26,8 @@ import java.util.Map;
 public abstract class BaseService<T> {
 
     private Class<T> cache = null; // 定义一个缓存--->来存储泛型
-
+    @Autowired
+    private MemberMapper memberMapper;
     /**
      * @desc: 注入实体类来返回所对应的mapper类型
      * @author: Joe Wang
@@ -295,5 +299,20 @@ public abstract class BaseService<T> {
     public T newInstance(Map map) {
         // 自定义高性能反射工具类(有些是有泛型的(List,Map,Set,BaseService<T>....))
         return (T) Map2BeanUtil.map2Bean(map, getTypeArgument());
+    }
+    /**
+     * 验证token封装
+     * @param token
+     * @return
+     */
+    public Member checkToken(String token){
+        //传进来的token不为空
+        if (null != token){
+            Member member = memberMapper.selectMemberByToken(token);
+            String memberToken = member.getToken();
+            //通过token去查询数据库，看数据库是否有该信息
+            if (null != memberToken) return member;
+        }
+        return null;
     }
 }

@@ -44,8 +44,10 @@ public class CollectService extends BaseService {
         if (b){
             PageHelper.startPage(pageInfos.getPageNum(), pageInfos.getPageSize());
             List<HashMap> collectList = collectMapper.selectCollectByMemberId(pageInfos.getT());
-            PageInfo<HashMap> pageInfo = new PageInfo<HashMap>(collectList);
-            return pageInfo;
+            if (collectList!=null){
+                PageInfo<HashMap> pageInfo = new PageInfo<HashMap>(collectList);
+                return pageInfo;
+            }
         }
        return null;
     }
