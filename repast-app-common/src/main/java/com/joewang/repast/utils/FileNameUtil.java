@@ -16,7 +16,7 @@ public class FileNameUtil {
      * @param: [userId]
      * @return: java.lang.String
      */
-    public static String getFileName(Long userId) {
+    public static String getFileName(String token) {
         // 1.获取当前时间的毫秒数
         long currentTimeMillis = System.currentTimeMillis();
         // 2.创建Random对象
@@ -26,7 +26,7 @@ public class FileNameUtil {
         // 4.最终的文件名
         //currentTimeMillis+userId+randomNum
         // %:占位符 03:三位 d:数字 --->如果随机出的数字没有达到三位03，默认自动往前面补0
-        String fileName = currentTimeMillis + userId + String.format("%03d", randomNum);
+        String fileName = currentTimeMillis + token + String.format("%03d", randomNum);
         // 5.返回文件名
         return fileName;
     }

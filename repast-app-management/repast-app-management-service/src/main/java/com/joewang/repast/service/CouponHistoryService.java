@@ -93,7 +93,6 @@ public class CouponHistoryService extends BaseService<CouponHistory> {
      * @return: com.github.pagehelper.PageInfo<com.joewang.repast.model.Coupon>
      */
     public PageInfo<Coupon> selectConponCouldGetPage(PageInfos<Long> pageInfos){
-        System.out.println(pageInfos.getT());
         PageHelper.startPage(pageInfos.getPageNum(),pageInfos.getPageSize());
         List<Coupon> coupons = couponHistoryMapper.selectConponCouldGet(pageInfos.getT());
         PageInfo pageInfo = new PageInfo(coupons);

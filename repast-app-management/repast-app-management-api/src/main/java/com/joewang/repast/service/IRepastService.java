@@ -5,9 +5,11 @@ import com.joewang.repast.model.CouponHistory;
 import com.joewang.repast.model.LoginLog;
 import com.joewang.repast.model.Member;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
@@ -85,5 +87,21 @@ public interface IRepastService {
      **/
     @PostMapping("/updateMember")
     Boolean updateMember(@RequestBody Member member);
+
+    /**
+     * @author Seven Lee
+     * @description
+     *      ftp文件上传
+     *      file的参数格式是multipart-file/form-data
+     *      普通的form表单格式:application/json
+     * @param [file, token]
+     * @date 2020/3/17
+     * @return java.lang.Boolean
+     * @throws
+     **/
+    @PostMapping(value = "/upload",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    Boolean uploadFile(@RequestBody MultipartFile file, @RequestParam("TOKEN") String token);
 
 }

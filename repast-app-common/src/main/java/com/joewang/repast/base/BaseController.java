@@ -109,6 +109,40 @@ public class BaseController {
         return resultData;
     }
 
+
+    /*
+     * @author Zero
+     * @description 登录失败，自定义返回值
+     * @param  [data]
+     * @date 2020/3/18 14:35
+     * @return com.joewang.repast.base.ResultData
+     * @throws
+     **/
+    protected ResultData loginFailed(Object data){
+        ResultData resultData = new ResultData();
+        resultData.setCode(LOGIN_FAILED.getCode());
+        resultData.setMsg(LOGIN_FAILED.getMsg());
+        resultData.setData(data);
+        return resultData;
+    }
+
+    /*
+     * @author Zero
+     * @description 登录失败，自定义返回值，自定义消息
+     * @param  [data]
+     * @date 2020/3/18 14:35
+     * @return com.joewang.repast.base.ResultData
+     * @throws
+     **/
+    protected ResultData loginFailed(String msg,Object data){
+
+        ResultData resultData = new ResultData();
+        resultData.setCode(FAILED.getCode());
+        resultData.setMsg(msg);
+        resultData.setData(data);
+        return resultData;
+    }
+
     /**
      * @author Seven Lee
      * @description

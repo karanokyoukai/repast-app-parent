@@ -1,237 +1,245 @@
 package com.joewang.repast.model;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "`pms_product`")
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Accessors(chain = true)
+@EqualsAndHashCode
 public class Product {
     @Id
     @Column(name = "`id`")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     /**
      * 店铺ID
      */
     @Column(name = "`shop_id`")
     private Long shopId;
-
+    
     /**
      * 品牌ID
      */
     @Column(name = "`brand_id`")
     private Long brandId;
-
+    
     /**
      * 产品类别ID
      */
     @Column(name = "`product_category_id`")
     private Long productCategoryId;
-
+    
     /**
      * 产品属性类别ID
      */
     @Column(name = "`product_attribute_category_id`")
     private Long productAttributeCategoryId;
-
+    
     @Column(name = "`name`")
     private String name;
-
+    
     @Column(name = "`pic`")
     private String pic;
-
+    
     /**
      * 货号
      */
     @Column(name = "`product_sn`")
     private String productSn;
-
+    
     /**
      * 删除状态：0->未删除；1->已删除
      */
     @Column(name = "`delete_status`")
     private Integer deleteStatus;
-
+    
     /**
      * 上架状态：0->下架；1->上架
      */
     @Column(name = "`publish_status`")
     private Integer publishStatus;
-
+    
     /**
      * 新品状态:0->不是新品；1->新品
      */
     @Column(name = "`new_status`")
     private Integer newStatus;
-
+    
     /**
      * 推荐状态；0->不推荐；1->推荐
      */
     @Column(name = "`recommand_status`")
     private Integer recommandStatus;
-
+    
     /**
      * 排序
      */
     @Column(name = "`sort`")
     private Integer sort;
-
+    
     /**
      * 销量
      */
     @Column(name = "`sale`")
     private Integer sale;
-
+    
     @Column(name = "`price`")
     private BigDecimal price;
-
+    
     /**
      * 促销价格
      */
     @Column(name = "`promotion_price`")
     private BigDecimal promotionPrice;
-
+    
     /**
      * 赠送的积分
      */
     @Column(name = "`gift_point`")
     private Integer giftPoint;
-
+    
     /**
      * 副标题
      */
     @Column(name = "`sub_title`")
     private String subTitle;
-
+    
     /**
      * 市场价
      */
     @Column(name = "`original_price`")
     private BigDecimal originalPrice;
-
+    
     /**
      * 库存
      */
     @Column(name = "`stock`")
     private Integer stock;
-
+    
     /**
      * 库存预警值
      */
     @Column(name = "`low_stock`")
     private Integer lowStock;
-
+    
     /**
      * 单位
      */
     @Column(name = "`unit`")
     private String unit;
-
+    
     /**
      * 商品重量，默认为克
      */
     @Column(name = "`weight`")
     private BigDecimal weight;
-
+    
     /**
      * 以逗号分割的产品服务：1->无忧退货；2->快速退款；3->免费包邮
      */
     @Column(name = "`service_ids`")
     private String serviceIds;
-
+    
     @Column(name = "`keywords`")
     private String keywords;
-
+    
     @Column(name = "`note`")
     private String note;
-
+    
     /**
      * 画册id
      */
     @Column(name = "`album_id`")
     private Long albumId;
-
+    
     @Column(name = "`detail_title`")
     private String detailTitle;
-
+    
     /**
      * 促销开始时间
      */
     @Column(name = "`promotion_start_time`")
     private Date promotionStartTime;
-
+    
     /**
      * 促销结束时间
      */
     @Column(name = "`promotion_end_time`")
     private Date promotionEndTime;
-
+    
     /**
      * 活动限购数量
      */
     @Column(name = "`promotion_per_limit`")
     private Integer promotionPerLimit;
-
+    
     /**
      * 促销类型：0->没有促销使用原价;1->使用促销价；2->使用会员价；3->使用阶梯价格；4->使用满减价格；5->限时购
      */
     @Column(name = "`promotion_type`")
     private Integer promotionType;
-
+    
     /**
      * 品牌名称
      */
     @Column(name = "`brand_name`")
     private String brandName;
-
+    
     /**
      * 商品分类名称
      */
     @Column(name = "`product_category_name`")
     private String productCategoryName;
-
+    
     /**
      * 币种，0-> 人民币;  1-> 积分
      */
     @Column(name = "`currency`")
     private Byte currency;
-
+    
     /**
      * 商品描述
      */
     @Column(name = "`description`")
     private String description;
-
+    
     @Column(name = "`detail_desc`")
     private String detailDesc;
-
+    
     /**
      * 产品详情网页内容
      */
     @Column(name = "`detail_html`")
     private String detailHtml;
-
+    
     /**
      * 移动端网页详情
      */
     @Column(name = "`detail_mobile_html`")
     private String detailMobileHtml;
-
+    
     /**
      * @return id
      */
     public Long getId() {
         return id;
     }
-
+    
     /**
      * @param id
      */
     public void setId(Long id) {
         this.id = id;
     }
-
+    
     /**
      * 获取店铺ID
      *
@@ -240,7 +248,7 @@ public class Product {
     public Long getShopId() {
         return shopId;
     }
-
+    
     /**
      * 设置店铺ID
      *
@@ -249,7 +257,7 @@ public class Product {
     public void setShopId(Long shopId) {
         this.shopId = shopId;
     }
-
+    
     /**
      * 获取品牌ID
      *
@@ -258,7 +266,7 @@ public class Product {
     public Long getBrandId() {
         return brandId;
     }
-
+    
     /**
      * 设置品牌ID
      *
@@ -267,7 +275,7 @@ public class Product {
     public void setBrandId(Long brandId) {
         this.brandId = brandId;
     }
-
+    
     /**
      * 获取产品类别ID
      *
@@ -276,7 +284,7 @@ public class Product {
     public Long getProductCategoryId() {
         return productCategoryId;
     }
-
+    
     /**
      * 设置产品类别ID
      *
@@ -285,7 +293,7 @@ public class Product {
     public void setProductCategoryId(Long productCategoryId) {
         this.productCategoryId = productCategoryId;
     }
-
+    
     /**
      * 获取产品属性类别ID
      *
@@ -294,7 +302,7 @@ public class Product {
     public Long getProductAttributeCategoryId() {
         return productAttributeCategoryId;
     }
-
+    
     /**
      * 设置产品属性类别ID
      *
@@ -303,35 +311,35 @@ public class Product {
     public void setProductAttributeCategoryId(Long productAttributeCategoryId) {
         this.productAttributeCategoryId = productAttributeCategoryId;
     }
-
+    
     /**
      * @return name
      */
     public String getName() {
         return name;
     }
-
+    
     /**
      * @param name
      */
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
     }
-
+    
     /**
      * @return pic
      */
     public String getPic() {
         return pic;
     }
-
+    
     /**
      * @param pic
      */
     public void setPic(String pic) {
         this.pic = pic == null ? null : pic.trim();
     }
-
+    
     /**
      * 获取货号
      *
@@ -340,7 +348,7 @@ public class Product {
     public String getProductSn() {
         return productSn;
     }
-
+    
     /**
      * 设置货号
      *
@@ -349,7 +357,7 @@ public class Product {
     public void setProductSn(String productSn) {
         this.productSn = productSn == null ? null : productSn.trim();
     }
-
+    
     /**
      * 获取删除状态：0->未删除；1->已删除
      *
@@ -358,7 +366,7 @@ public class Product {
     public Integer getDeleteStatus() {
         return deleteStatus;
     }
-
+    
     /**
      * 设置删除状态：0->未删除；1->已删除
      *
@@ -367,7 +375,7 @@ public class Product {
     public void setDeleteStatus(Integer deleteStatus) {
         this.deleteStatus = deleteStatus;
     }
-
+    
     /**
      * 获取上架状态：0->下架；1->上架
      *
@@ -376,7 +384,7 @@ public class Product {
     public Integer getPublishStatus() {
         return publishStatus;
     }
-
+    
     /**
      * 设置上架状态：0->下架；1->上架
      *
@@ -385,7 +393,7 @@ public class Product {
     public void setPublishStatus(Integer publishStatus) {
         this.publishStatus = publishStatus;
     }
-
+    
     /**
      * 获取新品状态:0->不是新品；1->新品
      *
@@ -394,7 +402,7 @@ public class Product {
     public Integer getNewStatus() {
         return newStatus;
     }
-
+    
     /**
      * 设置新品状态:0->不是新品；1->新品
      *
@@ -403,7 +411,7 @@ public class Product {
     public void setNewStatus(Integer newStatus) {
         this.newStatus = newStatus;
     }
-
+    
     /**
      * 获取推荐状态；0->不推荐；1->推荐
      *
@@ -412,7 +420,7 @@ public class Product {
     public Integer getRecommandStatus() {
         return recommandStatus;
     }
-
+    
     /**
      * 设置推荐状态；0->不推荐；1->推荐
      *
@@ -421,7 +429,7 @@ public class Product {
     public void setRecommandStatus(Integer recommandStatus) {
         this.recommandStatus = recommandStatus;
     }
-
+    
     /**
      * 获取排序
      *
@@ -430,7 +438,7 @@ public class Product {
     public Integer getSort() {
         return sort;
     }
-
+    
     /**
      * 设置排序
      *
@@ -439,7 +447,7 @@ public class Product {
     public void setSort(Integer sort) {
         this.sort = sort;
     }
-
+    
     /**
      * 获取销量
      *
@@ -448,7 +456,7 @@ public class Product {
     public Integer getSale() {
         return sale;
     }
-
+    
     /**
      * 设置销量
      *
@@ -457,21 +465,21 @@ public class Product {
     public void setSale(Integer sale) {
         this.sale = sale;
     }
-
+    
     /**
      * @return price
      */
     public BigDecimal getPrice() {
         return price;
     }
-
+    
     /**
      * @param price
      */
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
+    
     /**
      * 获取促销价格
      *
@@ -480,7 +488,7 @@ public class Product {
     public BigDecimal getPromotionPrice() {
         return promotionPrice;
     }
-
+    
     /**
      * 设置促销价格
      *
@@ -489,7 +497,7 @@ public class Product {
     public void setPromotionPrice(BigDecimal promotionPrice) {
         this.promotionPrice = promotionPrice;
     }
-
+    
     /**
      * 获取赠送的积分
      *
@@ -498,7 +506,7 @@ public class Product {
     public Integer getGiftPoint() {
         return giftPoint;
     }
-
+    
     /**
      * 设置赠送的积分
      *
@@ -507,7 +515,7 @@ public class Product {
     public void setGiftPoint(Integer giftPoint) {
         this.giftPoint = giftPoint;
     }
-
+    
     /**
      * 获取副标题
      *
@@ -516,7 +524,7 @@ public class Product {
     public String getSubTitle() {
         return subTitle;
     }
-
+    
     /**
      * 设置副标题
      *
@@ -525,7 +533,7 @@ public class Product {
     public void setSubTitle(String subTitle) {
         this.subTitle = subTitle == null ? null : subTitle.trim();
     }
-
+    
     /**
      * 获取市场价
      *
@@ -534,7 +542,7 @@ public class Product {
     public BigDecimal getOriginalPrice() {
         return originalPrice;
     }
-
+    
     /**
      * 设置市场价
      *
@@ -543,7 +551,7 @@ public class Product {
     public void setOriginalPrice(BigDecimal originalPrice) {
         this.originalPrice = originalPrice;
     }
-
+    
     /**
      * 获取库存
      *
@@ -552,7 +560,7 @@ public class Product {
     public Integer getStock() {
         return stock;
     }
-
+    
     /**
      * 设置库存
      *
@@ -561,7 +569,7 @@ public class Product {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
-
+    
     /**
      * 获取库存预警值
      *
@@ -570,7 +578,7 @@ public class Product {
     public Integer getLowStock() {
         return lowStock;
     }
-
+    
     /**
      * 设置库存预警值
      *
@@ -579,7 +587,7 @@ public class Product {
     public void setLowStock(Integer lowStock) {
         this.lowStock = lowStock;
     }
-
+    
     /**
      * 获取单位
      *
@@ -588,7 +596,7 @@ public class Product {
     public String getUnit() {
         return unit;
     }
-
+    
     /**
      * 设置单位
      *
@@ -597,7 +605,7 @@ public class Product {
     public void setUnit(String unit) {
         this.unit = unit == null ? null : unit.trim();
     }
-
+    
     /**
      * 获取商品重量，默认为克
      *
@@ -606,7 +614,7 @@ public class Product {
     public BigDecimal getWeight() {
         return weight;
     }
-
+    
     /**
      * 设置商品重量，默认为克
      *
@@ -615,7 +623,7 @@ public class Product {
     public void setWeight(BigDecimal weight) {
         this.weight = weight;
     }
-
+    
     /**
      * 获取以逗号分割的产品服务：1->无忧退货；2->快速退款；3->免费包邮
      *
@@ -624,7 +632,7 @@ public class Product {
     public String getServiceIds() {
         return serviceIds;
     }
-
+    
     /**
      * 设置以逗号分割的产品服务：1->无忧退货；2->快速退款；3->免费包邮
      *
@@ -633,35 +641,35 @@ public class Product {
     public void setServiceIds(String serviceIds) {
         this.serviceIds = serviceIds == null ? null : serviceIds.trim();
     }
-
+    
     /**
      * @return keywords
      */
     public String getKeywords() {
         return keywords;
     }
-
+    
     /**
      * @param keywords
      */
     public void setKeywords(String keywords) {
         this.keywords = keywords == null ? null : keywords.trim();
     }
-
+    
     /**
      * @return note
      */
     public String getNote() {
         return note;
     }
-
+    
     /**
      * @param note
      */
     public void setNote(String note) {
         this.note = note == null ? null : note.trim();
     }
-
+    
     /**
      * 获取画册id
      *
@@ -670,7 +678,7 @@ public class Product {
     public Long getAlbumId() {
         return albumId;
     }
-
+    
     /**
      * 设置画册id
      *
@@ -679,21 +687,21 @@ public class Product {
     public void setAlbumId(Long albumId) {
         this.albumId = albumId;
     }
-
+    
     /**
      * @return detail_title
      */
     public String getDetailTitle() {
         return detailTitle;
     }
-
+    
     /**
      * @param detailTitle
      */
     public void setDetailTitle(String detailTitle) {
         this.detailTitle = detailTitle == null ? null : detailTitle.trim();
     }
-
+    
     /**
      * 获取促销开始时间
      *
@@ -702,7 +710,7 @@ public class Product {
     public Date getPromotionStartTime() {
         return promotionStartTime;
     }
-
+    
     /**
      * 设置促销开始时间
      *
@@ -711,7 +719,7 @@ public class Product {
     public void setPromotionStartTime(Date promotionStartTime) {
         this.promotionStartTime = promotionStartTime;
     }
-
+    
     /**
      * 获取促销结束时间
      *
@@ -720,7 +728,7 @@ public class Product {
     public Date getPromotionEndTime() {
         return promotionEndTime;
     }
-
+    
     /**
      * 设置促销结束时间
      *
@@ -729,7 +737,7 @@ public class Product {
     public void setPromotionEndTime(Date promotionEndTime) {
         this.promotionEndTime = promotionEndTime;
     }
-
+    
     /**
      * 获取活动限购数量
      *
@@ -738,7 +746,7 @@ public class Product {
     public Integer getPromotionPerLimit() {
         return promotionPerLimit;
     }
-
+    
     /**
      * 设置活动限购数量
      *
@@ -747,7 +755,7 @@ public class Product {
     public void setPromotionPerLimit(Integer promotionPerLimit) {
         this.promotionPerLimit = promotionPerLimit;
     }
-
+    
     /**
      * 获取促销类型：0->没有促销使用原价;1->使用促销价；2->使用会员价；3->使用阶梯价格；4->使用满减价格；5->限时购
      *
@@ -756,7 +764,7 @@ public class Product {
     public Integer getPromotionType() {
         return promotionType;
     }
-
+    
     /**
      * 设置促销类型：0->没有促销使用原价;1->使用促销价；2->使用会员价；3->使用阶梯价格；4->使用满减价格；5->限时购
      *
@@ -765,7 +773,7 @@ public class Product {
     public void setPromotionType(Integer promotionType) {
         this.promotionType = promotionType;
     }
-
+    
     /**
      * 获取品牌名称
      *
@@ -774,7 +782,7 @@ public class Product {
     public String getBrandName() {
         return brandName;
     }
-
+    
     /**
      * 设置品牌名称
      *
@@ -783,7 +791,7 @@ public class Product {
     public void setBrandName(String brandName) {
         this.brandName = brandName == null ? null : brandName.trim();
     }
-
+    
     /**
      * 获取商品分类名称
      *
@@ -792,7 +800,7 @@ public class Product {
     public String getProductCategoryName() {
         return productCategoryName;
     }
-
+    
     /**
      * 设置商品分类名称
      *
@@ -801,7 +809,7 @@ public class Product {
     public void setProductCategoryName(String productCategoryName) {
         this.productCategoryName = productCategoryName == null ? null : productCategoryName.trim();
     }
-
+    
     /**
      * 获取币种，0-> 人民币;  1-> 积分
      *
@@ -810,7 +818,7 @@ public class Product {
     public Byte getCurrency() {
         return currency;
     }
-
+    
     /**
      * 设置币种，0-> 人民币;  1-> 积分
      *
@@ -819,7 +827,7 @@ public class Product {
     public void setCurrency(Byte currency) {
         this.currency = currency;
     }
-
+    
     /**
      * 获取商品描述
      *
@@ -828,7 +836,7 @@ public class Product {
     public String getDescription() {
         return description;
     }
-
+    
     /**
      * 设置商品描述
      *
@@ -837,21 +845,21 @@ public class Product {
     public void setDescription(String description) {
         this.description = description == null ? null : description.trim();
     }
-
+    
     /**
      * @return detail_desc
      */
     public String getDetailDesc() {
         return detailDesc;
     }
-
+    
     /**
      * @param detailDesc
      */
     public void setDetailDesc(String detailDesc) {
         this.detailDesc = detailDesc == null ? null : detailDesc.trim();
     }
-
+    
     /**
      * 获取产品详情网页内容
      *
@@ -860,7 +868,7 @@ public class Product {
     public String getDetailHtml() {
         return detailHtml;
     }
-
+    
     /**
      * 设置产品详情网页内容
      *
@@ -869,7 +877,7 @@ public class Product {
     public void setDetailHtml(String detailHtml) {
         this.detailHtml = detailHtml == null ? null : detailHtml.trim();
     }
-
+    
     /**
      * 获取移动端网页详情
      *
@@ -878,7 +886,7 @@ public class Product {
     public String getDetailMobileHtml() {
         return detailMobileHtml;
     }
-
+    
     /**
      * 设置移动端网页详情
      *

@@ -7,5 +7,10 @@ import tk.mybatis.mapper.common.Mapper;
 public interface ProductMapper extends Mapper<Product> {
     Product selectProductById(Long productId);
     //8分钟未开启，加入购物车修改商品表库存的数量
-    Integer updateStockById(Product product);
+
+Integer updateStockById(Product product);
+
+import tk.mybatis.mapper.common.Mapper;
+
+public interface ProductMapper extends Mapper<Product> {
 }
