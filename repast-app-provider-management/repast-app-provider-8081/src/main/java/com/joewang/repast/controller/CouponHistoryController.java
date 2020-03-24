@@ -95,7 +95,7 @@ public class CouponHistoryController {
      * @return: com.aaa.zxz.repast.base.ResultData
      */
     @PostMapping("/selectCouponsByMemberId")
-    public ResultData selectCouponsByMemberId(PageInfos<Long> pageInfos, @RequestParam("token") String token){
+    public ResultData selectCouponsByMemberId(@RequestBody PageInfos<Long> pageInfos, @RequestParam("token") String token){
         return couponHistoryService.selectCouponsByMemberId(pageInfos, token);
     }
 

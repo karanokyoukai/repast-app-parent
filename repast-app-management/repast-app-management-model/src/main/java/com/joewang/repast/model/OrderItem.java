@@ -3,6 +3,7 @@ package com.joewang.repast.model;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
@@ -13,11 +14,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Accessors(chain = true)
 @EqualsAndHashCode
+@ToString
 public class OrderItem {
     @Id
     @Column(name = "`id`")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     /**
      * 订单id
@@ -133,14 +135,14 @@ public class OrderItem {
     /**
      * @return id
      */
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id
      */
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

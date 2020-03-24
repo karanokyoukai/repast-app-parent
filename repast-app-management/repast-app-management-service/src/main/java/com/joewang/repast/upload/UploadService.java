@@ -18,8 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.Date;
 
+import static com.joewang.repast.staticstatus.RequestProperties.POINT;
 import static com.joewang.repast.staticstatus.StaticCode.FORMAT_DATE;
-import static sun.security.x509.IssuingDistributionPointExtension.POINT;
 
 @Service
 public class UploadService {

@@ -6,10 +6,7 @@ import com.joewang.repast.mapper.OrderMapper;
 import com.joewang.repast.model.Order;
 import com.joewang.repast.model.OrderItem;
 import com.joewang.repast.model.Product;
-import com.joewang.repast.utils.DelayCancelOrderTask;
-import com.joewang.repast.utils.DelayCancelOrderTaskManager;
-import com.joewang.repast.utils.JSONUtil;
-import com.joewang.repast.utils.StringUtil;
+import com.joewang.repast.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -94,8 +91,17 @@ public class OrderService extends BaseService<Order> {
             Order order1 = JSONUtil.toObject( JSONUtil.toJsonString(map.get("order")),Order.class);
             Integer result = orderMapper.insert(order1);
             if (result > 0){
-                List<OrderItem> orderItems = JSONUtil.toObject( JSONUtil.toJsonString(map.get("orderItems")),List.class);
-                Boolean aBoolean = this.insertOrderItem(orderItems, token);
+                List<OrderItem> orderItemList = new ArrayList<>();
+                String arr = JSONUtil.toJsonString(map.get("orderItems"));
+                System.out.println(arr);
+                List<Map> orderItems = JSONUtil.toObject( arr,List.class);
+                for (Map map3: orderItems){
+                    OrderItem orderItem = Map2BeanUtil.map2Bean(map3,OrderItem.class);
+                    System.out.println(orderItem);
+                    orderItemList.add(orderItem);
+                }
+                System.out.println(orderItemList);
+                Boolean aBoolean = this.insertOrderItem(orderItemList, token);
                 if(aBoolean){
                     DelayCancelOrderTaskManager delayCancelOrderTaskManager = DelayCancelOrderTaskManager.getInstance();
                     PayTimeoutCancelOrderProcessor processor = new PayTimeoutCancelOrderProcessor(order1.getId());
