@@ -146,4 +146,18 @@ public class MemberService extends BaseService<Member> {
         return false;
     }
 
+    /**
+     * @desc: 验证token
+     * @author: Joe Wang
+     * @date: 2020/3/24
+     * @param: [token]
+     * @return: java.lang.Boolean
+     */
+    public Boolean checkToken2(String token) {
+        Member member = memberMapper.selectMemberByToken(token);
+        if(null == member) {
+            return false;
+        }
+        return true;
+    }
 }

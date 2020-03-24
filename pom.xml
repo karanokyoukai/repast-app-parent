@@ -14,6 +14,7 @@
         <module>repast-app-management</module>
         <module>repast-app-provider-management</module>
         <module>repast-app-consumer-management</module>
+        <module>repast-app-zuul-4081</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -95,4 +95,16 @@ public class MemberController {
 
     }
 
+    /**
+     * @desc: 验证token
+     * @author: Joe Wang
+     * @date: 2020/3/24
+     * @param: [token]
+     * @return: java.lang.Boolean
+     */
+    @PostMapping("/checkToken")
+    public Boolean checkToken(@RequestParam("token") String token) {
+        return memberService.checkToken2(token);
+    }
+
 }

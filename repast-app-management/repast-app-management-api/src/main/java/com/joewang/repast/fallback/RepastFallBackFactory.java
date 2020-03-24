@@ -55,6 +55,11 @@ public class RepastFallBackFactory implements FallbackFactory<IRepastService> {
             public Boolean uploadFile(MultipartFile file, String token) {
                 return null;
             }
+
+            @Override
+            public Boolean checkToken2(String token) {
+                return null;
+            }
         };
         return null;
     }

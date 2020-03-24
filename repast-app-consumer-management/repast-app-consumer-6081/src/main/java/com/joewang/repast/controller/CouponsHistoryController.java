@@ -4,6 +4,7 @@ package com.joewang.repast.controller;
 import com.joewang.repast.base.BaseController;
 import com.joewang.repast.base.ResultData;
 import com.joewang.repast.model.CouponHistory;
+import com.joewang.repast.page.PageInfos;
 import com.joewang.repast.service.ICouponsHistoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -37,8 +38,8 @@ public class CouponsHistoryController extends BaseController {
      */
     @PostMapping("/selectCouponsByMemberId")
     @ApiOperation(value = "优惠券管理", notes = "查询个人优惠券")
-    public ResultData selectCouponsByMemberId(@RequestParam("memberId") Integer memberId, @RequestParam("token") String token){
-        ResultData resultData = couponsHistoryService.selectCouponsByMemberId(memberId, token);
+    public ResultData selectCouponsByMemberId(PageInfos<Long> pageInfos, @RequestParam("token") String token){
+        ResultData resultData = couponsHistoryService.selectCouponsByMemberId(pageInfos, token);
         if (resultData != null){
             return operationSuccess(resultData);
         }

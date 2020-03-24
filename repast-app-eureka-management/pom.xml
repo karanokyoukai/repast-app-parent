@@ -13,6 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>repast-app-eureka-7081</module>
+        <module>repast-app-eureka-7082</module>
+        <module>repast-app-eureka-7083</module>
     </modules>
 
     <dependencies>

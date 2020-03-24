@@ -38,7 +38,7 @@
     </update>
 
 
-  <update id="updateToken" parameterType="String">
+  <update id="updateToken" parameterType="string">
     update ums_member set token = null where token = #{token}
   </update>
 
@@ -46,7 +46,7 @@
         SELECT a.*,b.name AS member_level_name FROM ums_member a
         JOIN ums_member_level b ON a.member_level_id =b.id WHERE a.id=#{id}
     </select>
-    <select id="selectMemberByToken" resultType="com.joewang.repast.model.Member">
+    <select id="selectMemberByToken" parameterType="string" resultType="com.joewang.repast.model.Member">
       select * from ums_member where token=#{token}
     </select>
 </mapper>

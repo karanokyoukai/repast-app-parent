@@ -104,4 +104,13 @@ public interface IRepastService {
             produces = MediaType.APPLICATION_JSON_VALUE)
     Boolean uploadFile(@RequestBody MultipartFile file, @RequestParam("TOKEN") String token);
 
+    /**
+     * @desc: 验证token
+     * @author: Joe Wang
+     * @date: 2020/3/24
+     * @param: [token]
+     * @return: java.lang.Boolean
+     */
+    @PostMapping("/checkToken")
+    Boolean checkToken2(@RequestParam("token") String token);
 }

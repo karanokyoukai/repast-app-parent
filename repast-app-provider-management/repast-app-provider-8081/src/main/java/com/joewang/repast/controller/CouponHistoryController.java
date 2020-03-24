@@ -85,7 +85,7 @@ public class CouponHistoryController {
     }
 
     @Autowired
-    private CouponHistoryController couponHistoryService;
+    private CouponHistoryService couponHistoryService;
     /**
      * @Description:
      *      查询个人所拥有的优惠券
@@ -95,8 +95,8 @@ public class CouponHistoryController {
      * @return: com.aaa.zxz.repast.base.ResultData
      */
     @PostMapping("/selectCouponsByMemberId")
-    public ResultData selectCouponsByMemberId(@RequestParam("memberId") Integer memberId, @RequestParam("token") String token){
-        return couponHistoryService.selectCouponsByMemberId(memberId, token);
+    public ResultData selectCouponsByMemberId(PageInfos<Long> pageInfos, @RequestParam("token") String token){
+        return couponHistoryService.selectCouponsByMemberId(pageInfos, token);
     }
 
     /**

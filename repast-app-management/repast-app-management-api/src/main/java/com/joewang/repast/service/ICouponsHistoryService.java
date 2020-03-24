@@ -78,7 +78,7 @@ public interface ICouponsHistoryService {
      * @return: com.aaa.zxz.repast.base.ResultData
      */
     @PostMapping("/selectCouponsByMemberId")
-    ResultData selectCouponsByMemberId(@RequestParam("memberId") Integer memberId, @RequestParam("token") String token);
+    ResultData selectCouponsByMemberId(@RequestBody PageInfos pageInfos, @RequestParam("token") String token);
 
     /**
      * @Description:
