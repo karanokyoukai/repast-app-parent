@@ -50,7 +50,7 @@ public class CouponsHistoryFallBackFactory implements FallbackFactory<ICouponsHi
             }
 
             @Override
-            public ResultData selectCouponsByMemberId(Integer memberId, String token) {
+            public ResultData selectCouponsByMemberId(PageInfos pageInfos, String token) {
                 System.out.println("熔断查询个人所拥有的的优惠券");
                 return null;
             }
