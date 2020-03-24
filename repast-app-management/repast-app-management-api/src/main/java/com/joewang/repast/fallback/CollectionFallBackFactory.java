@@ -16,9 +16,9 @@ import java.util.HashMap;
  * @description:
  */
 @Component
-public class CollectionFallBackFactory implements FallbackFactory<Collect> {
+public class CollectionFallBackFactory implements FallbackFactory<ICollectionService> {
     @Override
-    public Collect create(Throwable cause) {
+    public ICollectionService create(Throwable cause) {
         ICollectionService iCollectionService= new ICollectionService() {
             @Override
             public PageInfo<HashMap> selectAllCollectByMemberId(PageInfos<Long> pageInfos, String token) {

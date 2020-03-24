@@ -24,7 +24,7 @@ import java.util.List;
 public class CouponsHistoryFallBackFactory implements FallbackFactory<ICouponsHistoryService> {
     @Override
     public ICouponsHistoryService create(Throwable throwable) {
-        ICouponsHistoryService iCouponsHistoryService = new ICouponsHistoryService() {
+        ICouponsHistoryService iCouponsHistoryService = new ICouponsHis toryService() {
             @Override
             public List<HashMap> selectMyCoupon(Long memberid) {
                 System.out.println("熔断根据用户id查询用户所有优惠券");

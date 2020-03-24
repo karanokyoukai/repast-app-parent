@@ -1,7 +1,6 @@
 package com.joewang.repast.fallback;
 
 import com.github.pagehelper.PageInfo;
-import com.joewang.repast.model.CartItem;
 import com.joewang.repast.page.PageInfos;
 import com.joewang.repast.service.ICartItemService;
 import feign.hystrix.FallbackFactory;
@@ -17,9 +16,9 @@ import java.util.Map;
  * @description:
  */
 @Component
-public class CartItemFallBackFactory implements FallbackFactory<CartItem> {
+public class CartItemFallBackFactory implements FallbackFactory<ICartItemService> {
     @Override
-    public CartItem create(Throwable cause) {
+    public ICartItemService create(Throwable cause) {
         ICartItemService iCartItemService=new ICartItemService() {
             @Override
             public PageInfo<HashMap> selectAllCartItem(PageInfos<Long> pageInfos, String token) {
