@@ -6,6 +6,7 @@ import com.joewang.repast.mapper.CouponHistoryMapper;
 import com.joewang.repast.mapper.CouponMapper;
 import com.joewang.repast.model.Coupon;
 import com.joewang.repast.utils.StringUtil;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.common.Mapper;
@@ -46,7 +47,7 @@ public class CouponService extends BaseService<Coupon> {
         ResultData resultData = new ResultData();
         try {
             if (token != null && !token.equals("")  && StringUtil.isNotEmpty(token)){
-                List<Coupon> couponList = couponsMapper.selectByExample(useType);
+                List<Coupon> couponList = couponsMapper.selectCouponsByUseType(useType);
                 if (couponList != null){
                     resultData.setData(couponList);
                     return resultData;

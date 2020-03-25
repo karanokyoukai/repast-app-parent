@@ -35,4 +35,7 @@
     select * from  sms_coupon where   enable_time != null
   </select>
 
+  <select id="selectCouponsByUseType" resultMap="BaseResultMap" parameterType="string">
+    select * from sms_coupon where use_type = #{useType}
+  </select>
 </mapper>

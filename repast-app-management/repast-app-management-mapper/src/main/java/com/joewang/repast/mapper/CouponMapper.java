@@ -27,4 +27,5 @@ public interface CouponMapper extends Mapper<Coupon> {
      */
     List<Coupon> selectEnableTime();
 
+    List<Coupon> selectCouponsByUseType(String useStatus);
 }
