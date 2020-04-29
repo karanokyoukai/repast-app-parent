@@ -7,9 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Company AAA软件教育
- * @Author Seven Lee
- * @Date Create in 2020/3/12 10:19
  * @Description
  *      通过ip地址获取用户的详细地理位置
  *      百度的API:
@@ -18,11 +15,9 @@ import java.util.Map;
 public class AddressUtil {
 
     /**
-     * @author Seven Lee
      * @description
      *      对外部提供的方法(通过这个方法可以获取地理位置信息)
      * @param [content, encodingString]
-     * @date 2020/3/12
      * @return java.lang.String
      * @throws
     **/
@@ -57,11 +52,9 @@ public class AddressUtil {
     }
 
     /**
-     * @author Seven Lee
      * @description
      *      通过获取到用户的ip--->把请求发送给百度Api服务器端--->从服务器端接收响应的数据
      * @param [urlStr, content, encoding]
-     * @date 2020/3/12
      * @return java.lang.String
      * @throws
     **/
@@ -105,11 +98,9 @@ public class AddressUtil {
     }
 
     /**
-     * @author Seven Lee
      * @description
      *      把字节转换为中文的工具方法
      * @param [theString]
-     * @date 2020/3/12
      * @return java.lang.String
      * @throws
     **/
