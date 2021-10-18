@@ -35,7 +35,7 @@
 
 ## 三、开源协议
 
-[Apache Licence 2.0](https://github.com/micyo202/lion/blob/master/LICENSE)（ [英文原文](http://www.apache.org/licenses/LICENSE-2.0.html) ）Apache Licence 是著名的非盈利开源组织 Apache 采用的协议。该协议和 BSD 类似，同样鼓励代码共享和尊重原作者的著作权，同样允许代码修改，再发布（作为开源或商业软件）。需要满足的条件也和 BSD 类似：
+[Apache Licence 2.0](https://github.com/karanokyoukai/repast-app-parent/master/LICENSE)（ [英文原文](http://www.apache.org/licenses/LICENSE-2.0.html) ）Apache Licence 是著名的非盈利开源组织 Apache 采用的协议。该协议和 BSD 类似，同样鼓励代码共享和尊重原作者的著作权，同样允许代码修改，再发布（作为开源或商业软件）。需要满足的条件也和 BSD 类似：
 
 - 需要给代码的用户一份 Apache Licence
 - 如果你修改了代码，需要在被修改的文件中说明
