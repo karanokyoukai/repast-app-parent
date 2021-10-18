@@ -1,5 +1,5 @@
 /**
- * @Company AAA软件教育
+ * @Company SS.Ed
  * @Author Zero
  * @Date Create in 2020/3/18 15:01
  * @Description
@@ -8,7 +8,7 @@
 package com.joewang.repast.upload;
 
 import com.joewang.repast.properties.FtpProperties;
-import com.joewang.repast.utils.DateUtil;
+import com.joewang.repast.utils.DateUtils;
 import com.joewang.repast.utils.FileNameUtil;
 import com.joewang.repast.utils.FtpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class UploadService {
         String newFileName = FileNameUtil.getFileName(token);
         newFileName = newFileName + oldFileName.substring(oldFileName.lastIndexOf(POINT));
         // 2.filePath
-        String filePath = DateUtil.formatDate(new Date(), FORMAT_DATE);
+        String filePath = DateUtils.format(new Date(), FORMAT_DATE);
         try {
             return FtpUtil.uploadFile(ftpProperties.getHost(), ftpProperties.getPort(), ftpProperties.getUsername()
                     , ftpProperties.getPassword(), ftpProperties.getBasePath(), filePath, newFileName, file.getInputStream());

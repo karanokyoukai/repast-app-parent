@@ -4,7 +4,7 @@ import static com.joewang.repast.status.LoginStatus.*;
 import static com.joewang.repast.status.StatusEnums.*;
 
 /**
- * @Company AAA软件教育
+ * @Company SS.Ed
  * @Author Seven Lee
  * @Date Create in 2020/3/9 20:42
  * @Description

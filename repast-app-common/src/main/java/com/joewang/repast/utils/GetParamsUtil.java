@@ -9,7 +9,7 @@ import java.util.Enumeration;
 import static com.joewang.repast.staticstatus.RequestProperties.GET_URL;
 
 /**
- * @Company AAA软件教育
+ * @Company SS.Ed
  * @Author Seven Lee
  * @Date Create in 2020/3/18 10:44
  * @Description

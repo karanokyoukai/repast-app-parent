@@ -10,7 +10,7 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 /**
- * @Company AAA软件教育
+ * @Company SS.Ed
  * @Author Zero
  * @Date Create in 2020/3/13 16:16
  * @Description 积分历史变化,需要涉及多个模块多张表的共同协助

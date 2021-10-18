@@ -5,7 +5,7 @@ import com.joewang.repast.model.LoginLog;
 import com.joewang.repast.model.Member;
 import com.joewang.repast.service.IRepastService;
 import com.joewang.repast.utils.AddressUtil;
-import com.joewang.repast.utils.DateUtil;
+import com.joewang.repast.utils.DateUtils;
 import com.joewang.repast.utils.IPUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -118,7 +118,7 @@ public class LogAspect {
         // 只能模拟ip地址
         Map<String, Object> addressMap = AddressUtil.getAddresses(TEST_IP, ENCODING);
 
-        String dataStr = DateUtil.formatDate(new Date(), FORMAT_DATE);
+        String dataStr = DateUtils.format(new Date(), FORMAT_DATE);
 
         LoginLog loginLog = new LoginLog();
         loginLog.setLoginType(3);

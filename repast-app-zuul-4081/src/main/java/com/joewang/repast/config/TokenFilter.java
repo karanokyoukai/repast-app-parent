@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import static com.joewang.repast.staticstatus.RequestProperties.*;
 
 /**
- * @Company AAA软件教育
+ * @Company SS.Ed
  * @Author Seven Lee
  * @Date Create in 2020/3/17 11:50
  * @Description

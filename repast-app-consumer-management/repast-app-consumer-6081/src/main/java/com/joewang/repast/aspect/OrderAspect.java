@@ -1,15 +1,10 @@
 package com.joewang.repast.aspect;
 
 import com.joewang.repast.annotation.LoginLogAnnotation;
-import com.joewang.repast.model.LoginLog;
-import com.joewang.repast.model.Member;
 import com.joewang.repast.model.OperateHistory;
 import com.joewang.repast.model.Order;
 import com.joewang.repast.service.IOrderService;
-import com.joewang.repast.service.IRepastService;
-import com.joewang.repast.utils.AddressUtil;
-import com.joewang.repast.utils.DateUtil;
-import com.joewang.repast.utils.IPUtil;
+import com.joewang.repast.utils.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -113,7 +108,7 @@ public class OrderAspect {
             }
         }
 
-        String dataStr = DateUtil.formatDate(new Date(), FORMAT_DATE);
+        String dataStr = DateUtils.format(new Date(), FORMAT_DATE);
 
         OperateHistory operateHistory = new OperateHistory();
         operateHistory.setCreateTime(dataStr);

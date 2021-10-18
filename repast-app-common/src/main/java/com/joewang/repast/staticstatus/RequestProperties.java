@@ -1,7 +1,7 @@
 package com.joewang.repast.staticstatus;
 
 /**
- * @Company AAA软件教育
+ * @Company SS.Ed
  * @Author Seven Lee
  * @Date Create in 2020/3/17 10:44
  * @Description
